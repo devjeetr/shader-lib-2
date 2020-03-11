@@ -13,7 +13,7 @@ module.exports = {
     rules: [
       {
         enforce: "pre",
-        test: /\.(jsx|js)$/,
+        test: /\.(jsx?|tsx?)$/,
         exclude: [/node_modules/, /src\/js\/lib/],
         use: {
           loader: "eslint-loader",

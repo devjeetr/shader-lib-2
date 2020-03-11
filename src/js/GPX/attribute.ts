@@ -32,6 +32,7 @@ const isAttribPropertiesUpdate = R.reduce(
 
 
 const getItemsToUpdate = (item: { [key: string]: any }): Set<string> => {
+  console.log(item);
   return new Set(
     Object.keys(item).filter(key => item[key] instanceof Function)
   );
@@ -102,7 +103,7 @@ export const updateAttributes = (
   const { gl, attributes } = state;
 
   state.attributes = attributes.map(attribute => {
-    const toUpdate = getItemsToUpdate(attribute);
+    const toUpdate = getItemsToUpdate(attribute.public);
     const resolvedAttribute = resolveAttributes(
       attribute.public,
       context,
@@ -110,8 +111,20 @@ export const updateAttributes = (
       toUpdate
     );
     
-    gl.enableVertexAttribArray(attribute.location);
-    if (isAttribPropertiesUpdate([...toUpdate])) {
+    console.log(toUpdate);
+    
+    // data must be transferred to buffer before vertexAttribPointer call
+    if (toUpdate.has("data") || attribute.dirty) {
+      gl.bindBuffer(resolvedAttribute.target, attribute.buffer);
+      gl.bufferData(
+        resolvedAttribute.target,
+        resolvedAttribute.data,
+        resolvedAttribute.usage
+      );
+    }
+    
+    if (isAttribPropertiesUpdate([...toUpdate]) || attribute.dirty) {
+      gl.enableVertexAttribArray(attribute.location);
       gl.vertexAttribPointer(
         attribute.location,
         resolvedAttribute.size,
@@ -120,15 +133,7 @@ export const updateAttributes = (
         resolvedAttribute.stride,
         resolvedAttribute.offset
       );
-    }
-
-    if (toUpdate.has("data")) {
-      gl.bindBuffer(resolvedAttribute.target, attribute.buffer);
-      gl.bufferData(
-        resolvedAttribute.target,
-        resolvedAttribute.data,
-        resolvedAttribute.usage
-      );
+      
     }
 
     return attribute;

@@ -17,6 +17,7 @@ export interface AttributeState {
   public: Attribute;
   location: GLenum;
   buffer: WebGLBuffer;
+  dirty: Boolean;
 }
 
 export type AttributeSize = GLint;

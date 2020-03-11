@@ -27,7 +27,8 @@ const buildAttributeState = (
     attributeState.push({
       public: attribute,
       location,
-      buffer: gl.createBuffer()
+      buffer: gl.createBuffer(),
+      dirty: true,
     });
   });
 
@@ -46,10 +47,7 @@ export const createApp = ({
 
   // create vertex attrib array
   const vao = gl.createVertexArray();
-  gl.bindVertexArray(vao);
   const attributeState = buildAttributeState(gl, program, attributes)
-  // unbind vertex attrib array
-  gl.bindVertexArray(null);
 
   // initialize uniforms
   // initUniforms(uniforms);
@@ -71,6 +69,7 @@ export const createApp = ({
       gl.viewport(0, 0, context.width || gl.canvas.width, context.height || gl.canvas.height);
 
       gl.useProgram(programState.program);
+      console.log("binding vertex array")
       gl.bindVertexArray(vao);
 
       updateAttributes(programState, context, props);

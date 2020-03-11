@@ -38,9 +38,9 @@ const drawTriangle = createApp({
         {
             name: "a_position",
             target: gl.ARRAY_BUFFER,
-            data: new Float32Array([0, 0,
-                0, 0.5,
-                0.7, 0,]),
+            data: (_, {data}) => {
+                return new Float32Array(data)
+            },
             size: 2,
             type: gl.FLOAT,
             normalized: false,
@@ -52,8 +52,11 @@ const drawTriangle = createApp({
     uniforms: [],
     draw: {
         type: gl.TRIANGLES,
+        offset: 0,
         count: 3,
     }
 });
 
-drawTriangle({});
+drawTriangle({data: [0, 0,
+    0, 0.5,
+    0.7, 0,]});
