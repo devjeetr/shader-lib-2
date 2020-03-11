@@ -5,6 +5,9 @@
   "main": "index.js",
   "author": "Devjeet Roy <devjeetrr@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "start": "webpack-dev-server --mode development"
+  },
   "devDependencies": {
     "@babel/core": "^7.8.7",
     "eslint": "^6.8.0",
@@ -18,6 +21,9 @@
     "webpack-merge": "^4.2.2"
   },
   "dependencies": {
-    "@types/webgl2": "^0.0.5"
+    "@types/ramda": "^0.26.43",
+    "@types/webgl2": "^0.0.5",
+    "immer": "^6.0.1",
+    "ramda": "^0.27.0"
   }
 }

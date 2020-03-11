@@ -3,8 +3,12 @@ const webpack = require("webpack");
 const path = require("path");
 
 module.exports = {
-  devtool: "source-map",
+  devtool: 'inline-source-map',
   target: "web",
+  resolve: {
+    extensions: [".ts", ".tsx", ".js", ".jsx"],
+    // modules: [path.resolve(__dirname, 'test'), 'node_modules']
+  },
   module: {
     rules: [
       {
@@ -22,17 +26,8 @@ module.exports = {
       {
         test: /\.tsx?$/,
         use: 'ts-loader',
+        
         exclude: /node_modules/,
-      },
-      {
-        test: /\.(jsx|js)$/,
-        exclude: /node_modules/,
-        resolve: {
-          extensions: [".ts"]
-        },
-        use: {
-          loader: "babel-loader"
-        }
       },
       {
         test: /\.html$/,
