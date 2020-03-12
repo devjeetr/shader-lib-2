@@ -5,11 +5,14 @@ import {
   AttributeState,
   GPXProps,
   ProgramState,
-  ShaderConfig
+  ShaderConfig,
+  Uniform,
+  UniformState
 } from "./primitives";
+import { createProgramWithShaders, resize } from "./utils";
 
-import { createProgramWithShaders } from "./utils";
-import { updateAttributes } from "./attribute";
+import { updateAttributes } from "./attribute/attribute";
+import { updateUniforms } from "./uniform/uniforms";
 
 const buildAttributeState = (
   gl: WebGL2RenderingContext,
@@ -28,11 +31,31 @@ const buildAttributeState = (
       public: attribute,
       location,
       buffer: gl.createBuffer(),
-      dirty: true,
+      dirty: true
     });
   });
 
   return attributeState;
+};
+
+const buildUniformState = (
+  gl: WebGL2RenderingContext,
+  program: WebGLProgram,
+  uniforms: Array<Uniform>
+) => {
+  const uniformState: Array<UniformState> = [];
+
+  uniforms.forEach(uniform => {
+    const location = gl.getUniformLocation(program, uniform.name);
+
+    uniformState.push({
+      public: uniform,
+      location,
+      dirty: true
+    });
+  });
+
+  return uniformState;
 };
 
 export const createApp = ({
@@ -40,6 +63,7 @@ export const createApp = ({
   vertexShader,
   fragmentShader,
   attributes,
+  uniforms,
   draw
 }: ShaderConfig) => {
   // compile shaders
@@ -47,8 +71,11 @@ export const createApp = ({
 
   // create vertex attrib array
   const vao = gl.createVertexArray();
-  const attributeState = buildAttributeState(gl, program, attributes)
-
+  const attributeState = attributes
+    ? buildAttributeState(gl, program, attributes)
+    : [];
+  const uniformState = uniforms ? buildUniformState(gl, program, uniforms) : [];
+  // resize(gl);
   // initialize uniforms
   // initUniforms(uniforms);
   let programState: ProgramState = {
@@ -56,25 +83,29 @@ export const createApp = ({
     program,
     vao,
     attributes: attributeState,
+    uniforms: uniformState,
     context: {
-      
+      // TODO
     },
-    draw,
+    draw
   };
 
   // initialize framebuffers
   return function(props: GPXProps): void {
     window.requestAnimationFrame(() => {
       const { gl, vao, context, draw } = programState;
-      gl.viewport(0, 0, context.width || gl.canvas.width, context.height || gl.canvas.height);
-
+      // TODO: only update viewport when necessary
+      // resize(gl);
+      gl.viewport(0, 0, gl.canvas.width, gl.canvas.height);
+      // TODO: only use program when necessary
       gl.useProgram(programState.program);
-      console.log("binding vertex array")
       gl.bindVertexArray(vao);
 
       updateAttributes(programState, context, props);
-      // updateUniforms(programState, context, props, );
+      // TODO
+      updateUniforms(programState, context, props);
+
       gl.drawArrays(draw.type, draw.offset, draw.count);
-    })
+    });
   };
 };

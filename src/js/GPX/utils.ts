@@ -9,17 +9,19 @@ export const loadShader = (
   gl.compileShader(shader);
 
   if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
-    console.log("error occured during compiling shader:");
-    console.log(gl.getShaderInfoLog(shader));
+    console.error("error occured during compiling shader:");
+    console.error(gl.getShaderInfoLog(shader));
 
     if (source) {
       source.split("\n").forEach((line, i) => {
-        console.log(`${i}: ${line}`);
+        console.error(`${i}: ${line}`);
       });
     }
 
     gl.deleteShader(shader);
-    return null;
+
+    throw new Error("Shader compilation failed.");
+    
   }
 
   return shader;
@@ -43,7 +45,7 @@ export const createProgramWithShaders = (
 
   gl.linkProgram(program);
   if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
-    console.log(
+    throw new Error(
       "Unable to initialize the shader program: " +
         gl.getProgramInfoLog(program)
     );
@@ -51,4 +53,33 @@ export const createProgramWithShaders = (
   }
 
   return program;
+};
+
+export const resize = (gl: WebGL2RenderingContext) => {
+  const realToCSSPixels = window.devicePixelRatio;
+
+  // Lookup the size the browser is displaying the canvas in CSS pixels
+  // and compute a size needed to make our drawingbuffer match it in
+  // device pixels.
+  const displayWidth = Math.floor(
+    (gl.canvas as HTMLCanvasElement).clientWidth * realToCSSPixels
+  );
+  const displayHeight = Math.floor(
+    (gl.canvas as HTMLCanvasElement).clientHeight * realToCSSPixels
+  );
+  console.log((gl.canvas as HTMLCanvasElement).clientHeight);
+  console.log(realToCSSPixels)
+  // Check if the canvas is not the same size.
+  if (gl.canvas.width !== displayWidth || gl.canvas.height !== displayHeight) {
+    // Make the canvas the same size
+    gl.canvas.width = displayWidth;
+    gl.canvas.height = displayHeight;
+  }
+};
+
+
+export const getItemsToUpdate = (item: { [key: string]: any }): Set<string> => {
+  return new Set(
+    Object.keys(item).filter(key => item[key] instanceof Function)
+  );
 };

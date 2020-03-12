@@ -15,7 +15,9 @@ import {
   GPXProps,
   ProgramState,
   ResolvedAttribute,
-} from "./primitives";
+} from "../primitives";
+
+import { getItemsToUpdate } from "../utils";
 
 const attributeProperties = new Set([
   "name",
@@ -30,13 +32,6 @@ const isAttribPropertiesUpdate = R.reduce(
   true
 );
 
-
-const getItemsToUpdate = (item: { [key: string]: any }): Set<string> => {
-  console.log(item);
-  return new Set(
-    Object.keys(item).filter(key => item[key] instanceof Function)
-  );
-};
 
 const resolveAttributes = (
   attribute: Attribute,
@@ -95,6 +90,13 @@ const resolveAttributes = (
   };
 };
 
+/**
+ * Updates attributes of this GPX program.
+ * 
+ * @param state the current ProgramState
+ * @param context current GPX context
+ * @param props props
+ */
 export const updateAttributes = (
   state: ProgramState,
   context: Context,
@@ -111,7 +113,6 @@ export const updateAttributes = (
       toUpdate
     );
     
-    console.log(toUpdate);
     
     // data must be transferred to buffer before vertexAttribPointer call
     if (toUpdate.has("data") || attribute.dirty) {
@@ -133,8 +134,9 @@ export const updateAttributes = (
         resolvedAttribute.stride,
         resolvedAttribute.offset
       );
-      
     }
+
+    attribute.dirty = false;
 
     return attribute;
   });
