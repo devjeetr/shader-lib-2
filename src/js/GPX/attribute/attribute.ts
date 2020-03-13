@@ -41,7 +41,7 @@ const updateIfNeeded = <T>(
   context: Context,
   props: GPXProps
 ): T => {
-  if (toUpdate.has(name)) {
+  if (toUpdate.has(typeName)) { // bug
     return (value as GPXContextAndPropsConsumer<T>)(context, props);
   } else {
     return value as T;
@@ -58,7 +58,7 @@ const updateIfNeeded = <T>(
  * @param props props used to resolve attribute
  * @param dynamicAttributes list of dynamic attributes
  */
-const resolveAttributes = (
+export const resolveAttributes = (
   attribute: Attribute,
   context: Context,
   props: GPXProps,
@@ -176,9 +176,8 @@ export const updateAttributes = (
         resolvedAttribute.stride,
         resolvedAttribute.offset
       );
-      console.log("hi")
+
       if (resolvedAttribute.divisor) {
-        console.log("has divisor")
         gl.vertexAttribDivisor(attribute.location, resolvedAttribute.divisor);
       }
     }
