@@ -1,6 +1,6 @@
 import { DrawConfigTypes } from "./GPX/primitives";
+import { GPX } from "./GPX/shader";
 import { circles_demo } from "./demos/square/square";
-import { createApp } from "./GPX/shader";
 import { hello_world_demo } from "./demos/hello_world/hello_world";
 import { instanced_triangles_demo } from "./demos/instanced_triangle/instanced_trianges";
 

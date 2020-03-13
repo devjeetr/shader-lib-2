@@ -1,10 +1,10 @@
 import {fragmentShader, vertexShader} from './shaders';
 
 import { DrawConfigTypes } from "../../GPX/primitives";
-import { createApp } from "../../GPX/shader";
+import { GPX } from "../../GPX/shader";
 
 export const instanced_triangles_demo = (gl: WebGL2RenderingContext) => {
-  const draw = createApp({
+  const draw = GPX({
     gl,
     vertexShader,
     fragmentShader,

@@ -1,8 +1,6 @@
 import * as R from "ramda";
 
 import {
-  Attribute,
-  AttributeState,
   DrawConfigTypes,
   GPXProps,
   ProgramState,
@@ -21,20 +19,7 @@ const buildAttributeState = (
   attributes: Array<Attribute>
 ): Array<AttributeState> => {
   const attributeState: Array<AttributeState> = [];
-
-  attributes.forEach(attribute => {
-    const location = gl.getAttribLocation(program, attribute.name);
-    if (location === -1) {
-      throw new Error(`Attribute location not found for ${attribute.name}`);
-    }
-
-    attributeState.push({
-      public: attribute,
-      location,
-      buffer: gl.createBuffer(),
-      dirty: true
-    });
-  });
+  
 
   return attributeState;
 };
@@ -59,7 +44,7 @@ const buildUniformState = (
   return uniformState;
 };
 
-export const createApp = ({
+export const GPX = ({
   gl,
   vertexShader,
   fragmentShader,
@@ -100,18 +85,17 @@ export const createApp = ({
       // TODO: only update viewport when necessary
       // resize(gl);
       gl.viewport(0, 0, gl.canvas.width, gl.canvas.height);
+
       // TODO: only use program when necessary
       gl.useProgram(programState.program);
       gl.bindVertexArray(vao);
 
       updateAttributes(programState, context, props);
-      // TODO
       updateUniforms(programState, context, props);
 
       switch(draw.kind) {
         case DrawConfigTypes.drawArrays:
           gl.drawArrays(draw.mode, draw.first, draw.count);
-          // console.log("draw arrays")
           break;
         case DrawConfigTypes.drawArraysInstanced:
           gl.drawArraysInstanced(draw.mode, draw.first, draw.count, draw.instanceCount);

@@ -1,7 +1,15 @@
+export type PropUpdateDispatcher = (options: any) => void;
+export interface PropUpdate {
+  type: any,
+  payload: any,
+};
+
+
 export type GPXContextAndPropsConsumer<T> = (
   context: Context,
-  props: GPXProps
-) => T;
+  props: GPXProps,
+  updateFn: PropUpdateDispatcher,
+) => void;
 
 export interface GPXProps {
   [key: string]: any;
@@ -26,6 +34,7 @@ export type DrawConfig =
   | InstancedDrawArrayConfig
   | DrawArraysConfig
   | DrawElementsConfig;
+
 /**
  * Refer to MDN documentation for drawArraysInstanced.
  * https://developer.mozilla.org/en-US/docs/Web/API/WebGL2RenderingContext/drawArraysInstanced
@@ -106,54 +115,16 @@ export interface ShaderConfig {
   draw: InstancedDrawArrayConfig | DrawArraysConfig;
 }
 
-/**
- *          Attributes
- */
-export type AttributeSize = GLint;
-export type AttributeType = GLenum;
-export type AttributeData = ArrayBuffer;
-export type AttributeNormalized = GLboolean;
-export type AttributeStride = GLsizei;
-export type AttributeOffset = GLintptr;
-export type AttributeUsage = GLenum;
-export type AttributeTarget = GLenum;
-export type AttributeDivisor = GLint;
-
-export interface ResolvedAttribute {
-  size: AttributeSize;
-  type: AttributeType;
-  data: AttributeData;
-  normalized: AttributeNormalized;
-  stride: AttributeStride;
-  offset: AttributeOffset;
-  usage: AttributeUsage;
-  target: AttributeTarget;
-  divisor?: AttributeDivisor;
-}
-
-export interface AttributeState {
-  public: Attribute;
-  location: GLenum;
-  buffer: WebGLBuffer;
-  dirty: Boolean;
-}
-
-export type DynamicProperty<T> = T | GPXContextAndPropsConsumer<T>;
-
-export interface Attribute {
-  name: string;
-  size: DynamicProperty<AttributeSize>;
-  type: DynamicProperty<AttributeType>;
-  data: DynamicProperty<AttributeData>;
-  normalized: DynamicProperty<AttributeNormalized>;
-  stride: DynamicProperty<AttributeStride>;
-  offset: DynamicProperty<AttributeOffset>;
-  usage: DynamicProperty<AttributeUsage>;
+export type BufferData = ArrayLike<number>;
+export interface Buffer {
+  data: DynamicProperty<BufferData>;
   target: DynamicProperty<AttributeTarget>;
-  divisor?: DynamicProperty<AttributeDivisor>;
-}
+  usage: DynamicProperty<AttributeUsage>;
+};
 
-export type AttributeUpdate = Omit<Attribute, "name">;
+export interface Buffers {
+  [bufferName: string]: Buffer;
+};
 
 export type UniformType =
   | "uniform1f"
@@ -184,4 +155,17 @@ export interface UniformState {
   public: Uniform;
   location: WebGLUniformLocation;
   dirty: Boolean;
+}
+
+
+export interface UpdateDescriptor {
+  property: any,
+  value: any,
+}
+export interface Update {
+  type: string,
+  payload: {
+      resourceId: string, 
+      descriptor: UpdateDescriptor
+  }
 }
