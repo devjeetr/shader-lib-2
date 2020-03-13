@@ -8,6 +8,7 @@ import {
   AttributeNormalized,
   AttributeOffset,
   AttributeSize,
+  AttributeStateCollection,
   AttributeStride,
   AttributeTarget,
   AttributeType,
@@ -23,7 +24,29 @@ import {
 } from "../primitives";
 
 import { getItemsToUpdate } from "../utils";
+import uuid from 'uuid/v4';
 
-const createAttributeState = (attributes: AttributeCollection) => {
+const attributeDefaults = {
+  offset: 0,
+  normalized: false,
+  stride: 0,
+};
+const createAttributeState = (attributes: AttributeCollection): AttributeStateCollection => {
+  const attributeState = {};
 
+  Object.keys(attributes)
+        .forEach(attributeName => {
+          let attribute = attributes[attributeName];
+          attribute = {...attribute, ...attributeDefaults};
+
+          const id = uuid();
+
+          attributeState[id] = {
+            
+          }
+
+  });
+
+
+  return attributeState;
 }
