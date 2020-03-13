@@ -76,9 +76,7 @@ export const createApp = ({
     ? buildAttributeState(gl, program, attributes)
     : [];
   const uniformState = uniforms ? buildUniformState(gl, program, uniforms) : [];
-  // resize(gl);
-  // initialize uniforms
-  // initUniforms(uniforms);
+  
   let programState: ProgramState = {
     gl,
     program,

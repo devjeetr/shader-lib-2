@@ -1,8 +1,8 @@
 import { DrawConfigTypes } from "./GPX/primitives";
-import { circles_demo } from "./demos/square";
+import { circles_demo } from "./demos/square/square";
 import { createApp } from "./GPX/shader";
-import { hello_world_demo } from "./demos/hello_world";
-import { instanced_triangles_demo } from "./demos/instanced_trianges";
+import { hello_world_demo } from "./demos/hello_world/hello_world";
+import { instanced_triangles_demo } from "./demos/instanced_triangle/instanced_trianges";
 
 const canvas = document.createElement("canvas");
 
