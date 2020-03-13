@@ -57,9 +57,9 @@ const drawTriangle = createApp({
     ],
     draw: {
       kind: DrawConfigTypes.drawArrays,
-      type: gl.TRIANGLES,
+      mode: gl.TRIANGLES,
       first: 0,
-      indexCount: 3,
+      count: 3,
     }
   });
   

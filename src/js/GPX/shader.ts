@@ -112,11 +112,11 @@ export const createApp = ({
 
       switch(draw.kind) {
         case DrawConfigTypes.drawArrays:
-          gl.drawArrays(draw.type, draw.first, draw.indexCount);
+          gl.drawArrays(draw.mode, draw.first, draw.count);
           // console.log("draw arrays")
           break;
         case DrawConfigTypes.drawArraysInstanced:
-          gl.drawArraysInstanced(draw.type, draw.first, draw.indexCount, draw.instanceCount);
+          gl.drawArraysInstanced(draw.mode, draw.first, draw.count, draw.instanceCount);
         default:
           break;
       }

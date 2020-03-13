@@ -10,23 +10,35 @@ export interface GPXProps {
 export enum DrawConfigTypes {
   drawArraysInstanced,
   drawArrays,
-  base,
+  drawElements
 }
 
-export interface DrawConfig {
-  type: GLenum;
-  first?: GLint;
-  indexCount: GLsizei;
-  kind: DrawConfigTypes;
-}
+export type DrawMode =
+  | WebGL2RenderingContext["POINTS"]
+  | WebGL2RenderingContext["LINE_STRIP"]
+  | WebGL2RenderingContext["LINE_LOOP"]
+  | WebGL2RenderingContext["LINES"]
+  | WebGL2RenderingContext["TRIANGLE_STRIP"]
+  | WebGL2RenderingContext["TRIANGLE_FAN"]
+  | WebGL2RenderingContext["TRIANGLES"];
 
+export type DrawConfig =
+  | InstancedDrawArrayConfig
+  | DrawArraysConfig
+  | DrawElementsConfig;
 /**
- * A draw config that specifies drawing instanced arrays.
  * Refer to MDN documentation for drawArraysInstanced.
  * https://developer.mozilla.org/en-US/docs/Web/API/WebGL2RenderingContext/drawArraysInstanced
  */
-export interface InstancedDrawArrayConfig extends DrawConfig {
+export interface InstancedDrawArrayConfig {
   kind: DrawConfigTypes.drawArraysInstanced;
+  /** A GLenum specifying the type primitive to render */
+  mode: DrawMode;
+  /** A GLint specifying the starting index in the array of vector points. */
+  first: GLint;
+  /** A GLsizei specifying the number of indices to be rendered. */
+  count: GLsizei;
+  /** A GLsizei specifying the number of instances of the range of elements to execute. */
   instanceCount: GLsizei;
 }
 
@@ -34,8 +46,28 @@ export interface InstancedDrawArrayConfig extends DrawConfig {
  * Refer to MDN documentation for drawArrays:
  * https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/drawArrays
  */
-export interface DrawArraysConfig extends DrawConfig {
+export interface DrawArraysConfig {
   kind: DrawConfigTypes.drawArrays;
+  /** A GLenum specifying the type primitive to render. */
+  mode: DrawMode;
+  /** A GLint specifying the starting index in the array of vector points. */
+  first: GLint;
+  /** A GLsizei specifying the number of indices to be rendered. */
+  count: GLsizei;
+}
+/**
+ * Refer to MDN documentation for drawArrays:
+ * https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/drawElements
+ */
+export interface DrawElementsConfig {
+  kind: DrawConfigTypes.drawElements;
+  mode: DrawMode;
+  count: GLsizei;
+  type:
+    | WebGL2RenderingContext["UNSIGNED_BYTE"]
+    | WebGL2RenderingContext["UNSIGNED_SHORT"]
+    | WebGL2RenderingContext["UNSIGNED_INT"];
+  offset: GLintptr;
 }
 
 export interface Context {
@@ -114,11 +146,11 @@ export interface Attribute {
   type: DynamicProperty<AttributeType>;
   data: DynamicProperty<AttributeData>;
   normalized: DynamicProperty<AttributeNormalized>;
-  stride: DynamicProperty<AttributeStride>
-  offset: DynamicProperty<AttributeOffset>
-  usage: DynamicProperty<AttributeUsage>
-  target: DynamicProperty<AttributeTarget>
-  divisor?: DynamicProperty<AttributeDivisor>
+  stride: DynamicProperty<AttributeStride>;
+  offset: DynamicProperty<AttributeOffset>;
+  usage: DynamicProperty<AttributeUsage>;
+  target: DynamicProperty<AttributeTarget>;
+  divisor?: DynamicProperty<AttributeDivisor>;
 }
 
 export type AttributeUpdate = Omit<Attribute, "name">;
@@ -149,7 +181,7 @@ export interface Uniform {
 }
 
 export interface UniformState {
-  public: Uniform,
+  public: Uniform;
   location: WebGLUniformLocation;
   dirty: Boolean;
 }

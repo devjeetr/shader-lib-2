@@ -61,9 +61,9 @@ export const instanced_triangles_demo = (gl: WebGL2RenderingContext) => {
     ],
     draw: {
       kind: DrawConfigTypes.drawArraysInstanced,
-      type: gl.TRIANGLES,
+      mode: gl.TRIANGLES,
       first: 0,
-      indexCount: 3,
+      count: 3,
       instanceCount: 5
     }
   });

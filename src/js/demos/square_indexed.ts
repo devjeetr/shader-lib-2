@@ -52,12 +52,11 @@ export const circles_demo = (gl: WebGL2RenderingContext) => {
     }
   });
   // prettier-ignore
-  drawTriangle({ data: [-0.5, -0.5, // triangle 0
-                        0.5, 0.5, 
-                        0.5, -0.5,
-                        -0.5, -0.5,
-                        0.5, 0.5,
-                        -0.5, 0.5], 
+  drawTriangle({ data: [-0.5, -0.5, // vertex 0
+                        0.5, 0.5,   // vertex 1
+                        0.5, -0.5,  //vertex 2
+                        -0.5, 0.5   //vertex 3
+                        ], 
     offset: [0.0, 0.0, 
               0, 0] });
 };
