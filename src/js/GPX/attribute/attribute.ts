@@ -31,6 +31,7 @@ const attributeDefaults = {
   normalized: false,
   stride: 0,
 };
+
 const createAttributeState = (attributes: AttributeCollection): AttributeStateCollection => {
   const attributeState = {};
 
