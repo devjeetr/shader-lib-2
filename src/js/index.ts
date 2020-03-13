@@ -1,3 +1,4 @@
+import { DrawConfigTypes } from "./GPX/primitives";
 import { createApp } from "./GPX/shader";
 
 const canvas = document.createElement("canvas");
@@ -62,9 +63,10 @@ const drawTriangle = createApp({
     }
   ],
   draw: {
+    kind: DrawConfigTypes.drawArrays,
     type: gl.TRIANGLES,
-    offset: 0,
-    count: 3
+    first: 0,
+    indexCount: 3,
   }
 });
 

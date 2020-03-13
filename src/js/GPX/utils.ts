@@ -57,7 +57,7 @@ export const createProgramWithShaders = (
 
 export const resize = (gl: WebGL2RenderingContext) => {
   const realToCSSPixels = window.devicePixelRatio;
-
+  
   // Lookup the size the browser is displaying the canvas in CSS pixels
   // and compute a size needed to make our drawingbuffer match it in
   // device pixels.
@@ -67,8 +67,7 @@ export const resize = (gl: WebGL2RenderingContext) => {
   const displayHeight = Math.floor(
     (gl.canvas as HTMLCanvasElement).clientHeight * realToCSSPixels
   );
-  console.log((gl.canvas as HTMLCanvasElement).clientHeight);
-  console.log(realToCSSPixels)
+  
   // Check if the canvas is not the same size.
   if (gl.canvas.width !== displayWidth || gl.canvas.height !== displayHeight) {
     // Make the canvas the same size

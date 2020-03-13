@@ -3,6 +3,7 @@ import * as R from "ramda";
 import {
   Attribute,
   AttributeData,
+  AttributeDivisor,
   AttributeNormalized,
   AttributeOffset,
   AttributeSize,
@@ -11,10 +12,11 @@ import {
   AttributeType,
   AttributeUsage,
   Context,
+  DynamicProperty,
   GPXContextAndPropsConsumer,
   GPXProps,
   ProgramState,
-  ResolvedAttribute,
+  ResolvedAttribute
 } from "../primitives";
 
 import { getItemsToUpdate } from "../utils";
@@ -32,67 +34,108 @@ const isAttribPropertiesUpdate = R.reduce(
   true
 );
 
+const updateIfNeeded = <T>(
+  toUpdate: Set<String>,
+  value: DynamicProperty<T>,
+  typeName: string,
+  context: Context,
+  props: GPXProps
+): T => {
+  if (toUpdate.has(name)) {
+    return (value as GPXContextAndPropsConsumer<T>)(context, props);
+  } else {
+    return value as T;
+  }
+};
 
+/**
+ * Given an attribute, resolves any dynamic properties
+ * of the attribute. A dynamic property is one that is
+ * defined as a function rather than a value.
+ * 
+ * @param attribute The attribute to be resolved
+ * @param context program context used to resolve attribute
+ * @param props props used to resolve attribute
+ * @param dynamicAttributes list of dynamic attributes
+ */
 const resolveAttributes = (
   attribute: Attribute,
   context: Context,
   props: GPXProps,
-  toUpdate: Set<string>
+  dynamicAttributes: Set<string>
 ): ResolvedAttribute => {
   return {
-    size: toUpdate.has("size")
-      ? (attribute.size as GPXContextAndPropsConsumer<AttributeSize>)(
+    size: updateIfNeeded<AttributeSize>(
+      dynamicAttributes,
+      attribute.size,
+      "size",
+      context,
+      props
+    ),
+    type: updateIfNeeded<AttributeType>(
+      dynamicAttributes,
+      attribute.type,
+      "type",
+      context,
+      props
+    ),
+    stride: updateIfNeeded<AttributeStride>(
+      dynamicAttributes,
+      attribute.stride,
+      "stride",
+      context,
+      props
+    ),
+    data: updateIfNeeded<AttributeData>(
+      dynamicAttributes,
+      attribute.data,
+      "data",
+      context,
+      props
+    ),
+    offset: updateIfNeeded<AttributeOffset>(
+      dynamicAttributes,
+      attribute.offset,
+      "offset",
+      context,
+      props
+    ),
+    normalized: updateIfNeeded<AttributeNormalized>(
+      dynamicAttributes,
+      attribute.normalized,
+      "normalized",
+      context,
+      props
+    ),
+    usage: updateIfNeeded<AttributeUsage>(
+      dynamicAttributes,
+      attribute.usage,
+      "usage",
+      context,
+      props
+    ),
+    target: updateIfNeeded<AttributeTarget>(
+      dynamicAttributes,
+      attribute.target,
+      "target",
+      context,
+      props
+    ),
+    divisor: attribute.divisor
+      ? updateIfNeeded<AttributeDivisor>(
+          dynamicAttributes,
+          attribute.divisor,
+          "divisor",
           context,
           props
         )
-      : (attribute.size as AttributeSize),
-    type: toUpdate.has("type")
-      ? (attribute.type as GPXContextAndPropsConsumer<AttributeType>)(
-          context,
-          props
-        )
-      : (attribute.type as AttributeType),
-    stride: toUpdate.has("stride")
-      ? (attribute.stride as GPXContextAndPropsConsumer<AttributeStride>)(
-          context,
-          props
-        )
-      : (attribute.stride as AttributeStride),
-    data: toUpdate.has("data")
-      ? (attribute.data as GPXContextAndPropsConsumer<AttributeData>)(
-          context,
-          props
-        )
-      : (attribute.data as AttributeData),
-    offset: toUpdate.has("offset")
-      ? (attribute.offset as GPXContextAndPropsConsumer<AttributeOffset>)(
-          context,
-          props
-        )
-      : (attribute.offset as AttributeOffset),
-    normalized: toUpdate.has("normalized")
-      ? (attribute.normalized as GPXContextAndPropsConsumer<
-          AttributeNormalized
-        >)(context, props)
-      : (attribute.normalized as AttributeNormalized),
-    usage: toUpdate.has("usage")
-      ? (attribute.usage as GPXContextAndPropsConsumer<AttributeUsage>)(
-          context,
-          props
-        )
-      : (attribute.usage as AttributeUsage),
-    target: toUpdate.has("target")
-      ? (attribute.target as GPXContextAndPropsConsumer<AttributeTarget>)(
-          context,
-          props
-        )
-      : (attribute.target as AttributeTarget)
+      : null
   };
 };
 
 /**
  * Updates attributes of this GPX program.
- * 
+ *
  * @param state the current ProgramState
  * @param context current GPX context
  * @param props props
@@ -112,8 +155,7 @@ export const updateAttributes = (
       props,
       toUpdate
     );
-    
-    
+
     // data must be transferred to buffer before vertexAttribPointer call
     if (toUpdate.has("data") || attribute.dirty) {
       gl.bindBuffer(resolvedAttribute.target, attribute.buffer);
@@ -123,7 +165,7 @@ export const updateAttributes = (
         resolvedAttribute.usage
       );
     }
-    
+
     if (isAttribPropertiesUpdate([...toUpdate]) || attribute.dirty) {
       gl.enableVertexAttribArray(attribute.location);
       gl.vertexAttribPointer(
@@ -134,6 +176,11 @@ export const updateAttributes = (
         resolvedAttribute.stride,
         resolvedAttribute.offset
       );
+      console.log("hi")
+      if (resolvedAttribute.divisor) {
+        console.log("has divisor")
+        gl.vertexAttribDivisor(attribute.location, resolvedAttribute.divisor);
+      }
     }
 
     attribute.dirty = false;

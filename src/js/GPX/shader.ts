@@ -3,6 +3,7 @@ import * as R from "ramda";
 import {
   Attribute,
   AttributeState,
+  DrawConfigTypes,
   GPXProps,
   ProgramState,
   ShaderConfig,
@@ -94,6 +95,10 @@ export const createApp = ({
   return function(props: GPXProps): void {
     window.requestAnimationFrame(() => {
       const { gl, vao, context, draw } = programState;
+      if (programState.fbos) {
+        gl.bindFramebuffer(gl.FRAMEBUFFER, programState.fbos);
+      }
+      
       // TODO: only update viewport when necessary
       // resize(gl);
       gl.viewport(0, 0, gl.canvas.width, gl.canvas.height);
@@ -105,7 +110,16 @@ export const createApp = ({
       // TODO
       updateUniforms(programState, context, props);
 
-      gl.drawArrays(draw.type, draw.offset, draw.count);
+      switch(draw.kind) {
+        case DrawConfigTypes.drawArrays:
+          gl.drawArrays(draw.type, draw.first, draw.indexCount);
+          // console.log("draw arrays")
+          break;
+        case DrawConfigTypes.drawArraysInstanced:
+          gl.drawArraysInstanced(draw.type, draw.first, draw.indexCount, draw.instanceCount);
+        default:
+          break;
+      }
     });
   };
 };
