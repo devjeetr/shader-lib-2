@@ -1,29 +1,25 @@
-import * as Immutable from "immutable";
 import * as R from "ramda";
 
 import {
+  bindBuffer,
   bindVao,
+  configureAttribute,
+  createBuffer,
   createProgramAndCompileShaders,
   createVao,
   drawArrays,
   fetchContext,
-  logState,
-  setViewPort,
-  useProgram,
-  configureAttribute,
   initAttribute,
   initUniform,
+  logState,
+  setBufferData,
+  setViewPort,
   updateUniform,
-  createBuffer,
-  bindBuffer,
-  setBufferData
+  useProgram
 } from "./GPX/Commands/core";
 import { fragmentShader, vertexShader } from "./demos/shaders/hello_world";
 
 import { GPX } from "./GPX/shader";
-// import { initAttribute, configureAttribute } from "./GPX/Commands/attribute";
-// import { initUniform, updateUniform } from "./GPX/Commands/uniform";
-// import { createBuffer, bindBuffer, setBufferData } from "./GPX/Commands/buffer";
 
 const canvas = document.createElement("canvas");
 

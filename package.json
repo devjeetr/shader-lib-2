@@ -6,7 +6,8 @@
   "author": "Devjeet Roy <devjeetrr@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "webpack-dev-server --mode development"
+    "start": "webpack-dev-server --mode development",
+    "doc": "rm -rf ./docs && typedoc --out ./docs/"
   },
   "devDependencies": {
     "@babel/core": "^7.8.7",
@@ -24,6 +25,8 @@
     "prettier": "^1.19.1",
     "ts-jest": "^25.2.1",
     "ts-loader": "^6.2.1",
+    "typedoc": "^0.16.11",
+    "typedoc-plugin-markdown": "^2.2.17",
     "typescript": "^3.8.3",
     "webpack": "^4.42.0",
     "webpack-cli": "^3.3.11",
@@ -31,14 +34,10 @@
     "webpack-merge": "^4.2.2"
   },
   "dependencies": {
-    "@types/immutable": "^3.8.7",
     "@types/ramda": "^0.26.43",
     "immer": "^6.0.1",
-    "immutable-js": "^0.3.1-6",
     "prettier-eslint": "^9.0.1",
     "ramda": "^0.27.0",
-    "sonarjs": "^1.0.0",
-    "uuid": "^7.0.2",
-    "webgl-constants": "https://github.com/TimvanScherpenzeel/webgl-constants"
+    "sonarjs": "^1.0.0"
   }
 }

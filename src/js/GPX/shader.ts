@@ -36,7 +36,7 @@ GPX.pipeFirst = (_: any, ...commands: PipeCommands) => {
       if (!(command[0] instanceof Function)) {
         throw new Error("Invalid arguments passed to GPX.pipeFirst");
       }
-
+      
       return command[0](_, ...(command as Array<any>).slice(1));
     }
 
