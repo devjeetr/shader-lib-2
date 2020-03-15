@@ -3,13 +3,13 @@ export const vertexShader = `#version 300 es
       // an attribute is an input (in) to a vertex shader.
       // It will receive data from a buffer
       in vec4 a_position;
-      uniform vec4 u_offset;
       // all shaders have a main function
       void main() {
        
         // gl_Position is a special variable a vertex shader
         // is responsible for setting
-        gl_Position = a_position + u_offset;
+        gl_Position = a_position;
+        gl_PointSize = 20.0;
       }`;
       
 export const fragmentShader = `#version 300 es

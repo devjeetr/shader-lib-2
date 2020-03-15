@@ -31,11 +31,14 @@
     "webpack-merge": "^4.2.2"
   },
   "dependencies": {
+    "@types/immutable": "^3.8.7",
     "@types/ramda": "^0.26.43",
     "immer": "^6.0.1",
+    "immutable-js": "^0.3.1-6",
     "prettier-eslint": "^9.0.1",
     "ramda": "^0.27.0",
     "sonarjs": "^1.0.0",
-    "uuid": "^7.0.2"
+    "uuid": "^7.0.2",
+    "webgl-constants": "https://github.com/TimvanScherpenzeel/webgl-constants"
   }
 }
