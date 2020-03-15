@@ -2,11 +2,10 @@ import * as R from "ramda";
 
 import { Command, ProgramState } from "./Commands/types";
 
-import { produce } from "immer";
-
 const createProgramState = (): ProgramState => ({
   attributes: {},
-  buffers: {}
+  buffers: {},
+  uniforms: {},
 });
 
 const executeCommands = (state: ProgramState, ...commands: Array<Command>) => {
@@ -17,6 +16,7 @@ const executeCommands = (state: ProgramState, ...commands: Array<Command>) => {
 
   return Object.freeze(state);
 };
+
 export const GPX = (...commands: Array<Command>): ProgramState => {
   let state = createProgramState();
   return executeCommands(state, ...R.flatten(commands));

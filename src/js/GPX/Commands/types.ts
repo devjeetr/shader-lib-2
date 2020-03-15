@@ -1,16 +1,17 @@
-import {
-  GL_ARRAY_BUFFER,
-  GL_DYNAMIC_DRAW,
-  GL_ELEMENT_ARRAY_BUFFER,
-  GL_STATIC_DRAW
-} from "../webgl/constants";
-
 export interface ProgramState {
   gl?: WebGL2RenderingContext;
   program?: WebGLProgram;
   vao?: WebGLVertexArrayObject;
   attributes: Attributes;
+  uniforms: Uniforms;
   buffers: Buffers;
+}
+
+export interface Uniform {
+  location: WebGLUniformLocation;
+}
+export interface Uniforms {
+  [key: string]: Uniform;
 }
 
 export interface Attributes {
@@ -23,13 +24,19 @@ export interface Buffer {
   handle: WebGLBuffer;
   target: BufferTarget;
   usage: BufferUsage;
-};
+}
 
 export interface Buffers {
   [key: string]: Buffer;
 }
 export interface Attribute {
   location: number;
+  size: number;
+  type: GLenum;
+  offset: number;
+  stride: number;
+  normalized: boolean;
+  divisor?: number;
 }
 
 export interface Command {
