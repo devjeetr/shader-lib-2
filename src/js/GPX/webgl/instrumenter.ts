@@ -16,7 +16,6 @@ export const instrumentContext = (gl: WebGL2RenderingContext): InstrumentedConte
     Object.keys(Object.getPrototypeOf(gl)).forEach(key => {
         // @ts-ignore
         if (gl[key] instanceof Function) {
-            console.log(`${key} is a function`)
             // @ts-ignore
             instrumented[key] = (...args) => {
                 glCallCount += 1;
@@ -25,7 +24,6 @@ export const instrumentContext = (gl: WebGL2RenderingContext): InstrumentedConte
                 return gl[key](...args);
             };
         } else {
-            console.log("other")
             // @ts-ignore
             instrumented[key] = gl[key];
         }

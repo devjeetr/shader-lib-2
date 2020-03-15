@@ -114,7 +114,7 @@ export const setBufferData = (name: string, data: any) => ({
   resolve: createResolver((state: ProgramState) => {
     const { gl, buffers } = state;
     const buffer = buffers[name];
-
+    console.log(data);
     gl.bufferData(buffer.target, data, buffer.usage);
   })
 });
