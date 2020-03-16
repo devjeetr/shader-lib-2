@@ -2,10 +2,11 @@
     "compilerOptions": {
       "outDir": "./dist/",
       "noImplicitAny": true,
-      "module": "es6",
-      "target": "es6",
-      "allowJs": true,
+      "target": "esnext",
+      "declaration": true,
+      "allowJs": false,
+      "module": "esnext",
+      "sourceMap": true,
       "moduleResolution": "node",
-      "sourceMap": true
     }
   }

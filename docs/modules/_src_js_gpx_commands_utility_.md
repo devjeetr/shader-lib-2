@@ -19,7 +19,7 @@
 
 ▸ **logState**(`message`: string): *[Command](../interfaces/_src_js_gpx_commands_types_.command.md)*
 
-*Defined in [src/js/GPX/Commands/utility.ts:24](https://github.com/devjeetr/shader-lib-2/blob/83bd8e1/src/js/GPX/Commands/utility.ts#L24)*
+*Defined in [src/js/GPX/Commands/utility.ts:24](https://github.com/devjeetr/shader-lib-2/blob/ba2fd65/src/js/GPX/Commands/utility.ts#L24)*
 
 **Parameters:**
 
@@ -35,7 +35,7 @@ ___
 
 ▸ **setViewPort**(`config`: [ViewPortConfig](../interfaces/_src_js_gpx_commands_utility_.viewportconfig.md)): *object*
 
-*Defined in [src/js/GPX/Commands/utility.ts:12](https://github.com/devjeetr/shader-lib-2/blob/83bd8e1/src/js/GPX/Commands/utility.ts#L12)*
+*Defined in [src/js/GPX/Commands/utility.ts:12](https://github.com/devjeetr/shader-lib-2/blob/ba2fd65/src/js/GPX/Commands/utility.ts#L12)*
 
 **Parameters:**
 

@@ -1,5 +1,6 @@
-import { ProgramState, Command } from "./types";
-import { produce, original } from "immer";
+import { Command, ProgramState } from "./types";
+import { original, produce } from "immer";
+
 // import { instrumentContext } from "../webgl/instrumenter";
 
 export const createResolver = (fn: (state: ProgramState) => void) => (

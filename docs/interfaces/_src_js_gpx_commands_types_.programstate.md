@@ -23,7 +23,7 @@
 
 • **attributes**: *[Attributes](_src_js_gpx_commands_types_.attributes.md)*
 
-*Defined in [src/js/GPX/Commands/types.ts:5](https://github.com/devjeetr/shader-lib-2/blob/83bd8e1/src/js/GPX/Commands/types.ts#L5)*
+*Defined in [src/js/GPX/Commands/types.ts:5](https://github.com/devjeetr/shader-lib-2/blob/ba2fd65/src/js/GPX/Commands/types.ts#L5)*
 
 ___
 
@@ -31,7 +31,7 @@ ___
 
 • **buffers**: *[Buffers](_src_js_gpx_commands_types_.buffers.md)*
 
-*Defined in [src/js/GPX/Commands/types.ts:7](https://github.com/devjeetr/shader-lib-2/blob/83bd8e1/src/js/GPX/Commands/types.ts#L7)*
+*Defined in [src/js/GPX/Commands/types.ts:7](https://github.com/devjeetr/shader-lib-2/blob/ba2fd65/src/js/GPX/Commands/types.ts#L7)*
 
 ___
 
@@ -39,7 +39,7 @@ ___
 
 • **gl**? : *[WebGL2RenderingContext](_src_js_gpx_webgl_instrumenter_.instrumentedcontext.md#webgl2renderingcontext)*
 
-*Defined in [src/js/GPX/Commands/types.ts:2](https://github.com/devjeetr/shader-lib-2/blob/83bd8e1/src/js/GPX/Commands/types.ts#L2)*
+*Defined in [src/js/GPX/Commands/types.ts:2](https://github.com/devjeetr/shader-lib-2/blob/ba2fd65/src/js/GPX/Commands/types.ts#L2)*
 
 ___
 
@@ -47,7 +47,7 @@ ___
 
 • **program**? : *WebGLProgram*
 
-*Defined in [src/js/GPX/Commands/types.ts:3](https://github.com/devjeetr/shader-lib-2/blob/83bd8e1/src/js/GPX/Commands/types.ts#L3)*
+*Defined in [src/js/GPX/Commands/types.ts:3](https://github.com/devjeetr/shader-lib-2/blob/ba2fd65/src/js/GPX/Commands/types.ts#L3)*
 
 ___
 
@@ -55,7 +55,7 @@ ___
 
 • **uniforms**: *[Uniforms](_src_js_gpx_commands_types_.uniforms.md)*
 
-*Defined in [src/js/GPX/Commands/types.ts:6](https://github.com/devjeetr/shader-lib-2/blob/83bd8e1/src/js/GPX/Commands/types.ts#L6)*
+*Defined in [src/js/GPX/Commands/types.ts:6](https://github.com/devjeetr/shader-lib-2/blob/ba2fd65/src/js/GPX/Commands/types.ts#L6)*
 
 ___
 
@@ -63,4 +63,4 @@ ___
 
 • **vao**? : *WebGLVertexArrayObject*
 
-*Defined in [src/js/GPX/Commands/types.ts:4](https://github.com/devjeetr/shader-lib-2/blob/83bd8e1/src/js/GPX/Commands/types.ts#L4)*
+*Defined in [src/js/GPX/Commands/types.ts:4](https://github.com/devjeetr/shader-lib-2/blob/ba2fd65/src/js/GPX/Commands/types.ts#L4)*

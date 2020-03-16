@@ -21,7 +21,7 @@
 
 • **delete**: *function*
 
-*Defined in [src/js/GPX/cache.ts:4](https://github.com/devjeetr/shader-lib-2/blob/83bd8e1/src/js/GPX/cache.ts#L4)*
+*Defined in [src/js/GPX/cache.ts:4](https://github.com/devjeetr/shader-lib-2/blob/ba2fd65/src/js/GPX/cache.ts#L4)*
 
 #### Type declaration:
 
@@ -39,7 +39,7 @@ ___
 
 • **exists**: *function*
 
-*Defined in [src/js/GPX/cache.ts:5](https://github.com/devjeetr/shader-lib-2/blob/83bd8e1/src/js/GPX/cache.ts#L5)*
+*Defined in [src/js/GPX/cache.ts:5](https://github.com/devjeetr/shader-lib-2/blob/ba2fd65/src/js/GPX/cache.ts#L5)*
 
 #### Type declaration:
 
@@ -57,7 +57,7 @@ ___
 
 • **getOrDefault**: *function*
 
-*Defined in [src/js/GPX/cache.ts:6](https://github.com/devjeetr/shader-lib-2/blob/83bd8e1/src/js/GPX/cache.ts#L6)*
+*Defined in [src/js/GPX/cache.ts:6](https://github.com/devjeetr/shader-lib-2/blob/ba2fd65/src/js/GPX/cache.ts#L6)*
 
 #### Type declaration:
 
@@ -76,7 +76,7 @@ ___
 
 • **update**: *function*
 
-*Defined in [src/js/GPX/cache.ts:3](https://github.com/devjeetr/shader-lib-2/blob/83bd8e1/src/js/GPX/cache.ts#L3)*
+*Defined in [src/js/GPX/cache.ts:3](https://github.com/devjeetr/shader-lib-2/blob/ba2fd65/src/js/GPX/cache.ts#L3)*
 
 #### Type declaration:
 

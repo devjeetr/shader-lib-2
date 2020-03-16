@@ -20,7 +20,7 @@
 
 ▸ **drawArrays**(`config`: [DrawArraysConfig](../interfaces/_src_js_gpx_commands_draw_.drawarraysconfig.md)): *object*
 
-*Defined in [src/js/GPX/Commands/draw.ts:10](https://github.com/devjeetr/shader-lib-2/blob/83bd8e1/src/js/GPX/Commands/draw.ts#L10)*
+*Defined in [src/js/GPX/Commands/draw.ts:10](https://github.com/devjeetr/shader-lib-2/blob/ba2fd65/src/js/GPX/Commands/draw.ts#L10)*
 
 **Parameters:**
 
@@ -41,7 +41,7 @@ ___
 
 ▸ **drawArraysInstanced**(`config`: [DrawArraysInstancedConfig](../interfaces/_src_js_gpx_commands_draw_.drawarraysinstancedconfig.md)): *object*
 
-*Defined in [src/js/GPX/Commands/draw.ts:24](https://github.com/devjeetr/shader-lib-2/blob/83bd8e1/src/js/GPX/Commands/draw.ts#L24)*
+*Defined in [src/js/GPX/Commands/draw.ts:24](https://github.com/devjeetr/shader-lib-2/blob/ba2fd65/src/js/GPX/Commands/draw.ts#L24)*
 
 **Parameters:**
 

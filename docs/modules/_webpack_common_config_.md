@@ -16,7 +16,7 @@
 
 • **HtmlWebPackPlugin**: *any* = require("html-webpack-plugin")
 
-*Defined in [webpack.common.config.js:1](https://github.com/devjeetr/shader-lib-2/blob/83bd8e1/webpack.common.config.js#L1)*
+*Defined in [webpack.common.config.js:1](https://github.com/devjeetr/shader-lib-2/blob/ba2fd65/webpack.common.config.js#L1)*
 
 ___
 
@@ -24,7 +24,7 @@ ___
 
 • **path**: *PlatformPath* = require("path")
 
-*Defined in [webpack.common.config.js:3](https://github.com/devjeetr/shader-lib-2/blob/83bd8e1/webpack.common.config.js#L3)*
+*Defined in [webpack.common.config.js:3](https://github.com/devjeetr/shader-lib-2/blob/ba2fd65/webpack.common.config.js#L3)*
 
 ___
 
@@ -32,4 +32,4 @@ ___
 
 • **webpack**: *any* = require("webpack")
 
-*Defined in [webpack.common.config.js:2](https://github.com/devjeetr/shader-lib-2/blob/83bd8e1/webpack.common.config.js#L2)*
+*Defined in [webpack.common.config.js:2](https://github.com/devjeetr/shader-lib-2/blob/ba2fd65/webpack.common.config.js#L2)*

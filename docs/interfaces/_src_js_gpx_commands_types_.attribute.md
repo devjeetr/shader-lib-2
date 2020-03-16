@@ -24,7 +24,7 @@
 
 • **divisor**? : *number*
 
-*Defined in [src/js/GPX/Commands/types.ts:39](https://github.com/devjeetr/shader-lib-2/blob/83bd8e1/src/js/GPX/Commands/types.ts#L39)*
+*Defined in [src/js/GPX/Commands/types.ts:39](https://github.com/devjeetr/shader-lib-2/blob/ba2fd65/src/js/GPX/Commands/types.ts#L39)*
 
 ___
 
@@ -32,7 +32,7 @@ ___
 
 • **location**: *number*
 
-*Defined in [src/js/GPX/Commands/types.ts:33](https://github.com/devjeetr/shader-lib-2/blob/83bd8e1/src/js/GPX/Commands/types.ts#L33)*
+*Defined in [src/js/GPX/Commands/types.ts:33](https://github.com/devjeetr/shader-lib-2/blob/ba2fd65/src/js/GPX/Commands/types.ts#L33)*
 
 ___
 
@@ -40,7 +40,7 @@ ___
 
 • **normalized**: *boolean*
 
-*Defined in [src/js/GPX/Commands/types.ts:38](https://github.com/devjeetr/shader-lib-2/blob/83bd8e1/src/js/GPX/Commands/types.ts#L38)*
+*Defined in [src/js/GPX/Commands/types.ts:38](https://github.com/devjeetr/shader-lib-2/blob/ba2fd65/src/js/GPX/Commands/types.ts#L38)*
 
 ___
 
@@ -48,7 +48,7 @@ ___
 
 • **offset**: *number*
 
-*Defined in [src/js/GPX/Commands/types.ts:36](https://github.com/devjeetr/shader-lib-2/blob/83bd8e1/src/js/GPX/Commands/types.ts#L36)*
+*Defined in [src/js/GPX/Commands/types.ts:36](https://github.com/devjeetr/shader-lib-2/blob/ba2fd65/src/js/GPX/Commands/types.ts#L36)*
 
 ___
 
@@ -56,7 +56,7 @@ ___
 
 • **size**: *number*
 
-*Defined in [src/js/GPX/Commands/types.ts:34](https://github.com/devjeetr/shader-lib-2/blob/83bd8e1/src/js/GPX/Commands/types.ts#L34)*
+*Defined in [src/js/GPX/Commands/types.ts:34](https://github.com/devjeetr/shader-lib-2/blob/ba2fd65/src/js/GPX/Commands/types.ts#L34)*
 
 ___
 
@@ -64,7 +64,7 @@ ___
 
 • **stride**: *number*
 
-*Defined in [src/js/GPX/Commands/types.ts:37](https://github.com/devjeetr/shader-lib-2/blob/83bd8e1/src/js/GPX/Commands/types.ts#L37)*
+*Defined in [src/js/GPX/Commands/types.ts:37](https://github.com/devjeetr/shader-lib-2/blob/ba2fd65/src/js/GPX/Commands/types.ts#L37)*
 
 ___
 
@@ -72,4 +72,4 @@ ___
 
 • **type**: *GLenum*
 
-*Defined in [src/js/GPX/Commands/types.ts:35](https://github.com/devjeetr/shader-lib-2/blob/83bd8e1/src/js/GPX/Commands/types.ts#L35)*
+*Defined in [src/js/GPX/Commands/types.ts:35](https://github.com/devjeetr/shader-lib-2/blob/ba2fd65/src/js/GPX/Commands/types.ts#L35)*

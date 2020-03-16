@@ -16,7 +16,7 @@
 
 • **common**: *object* = require("./webpack.common.config")
 
-*Defined in [webpack.config.js:2](https://github.com/devjeetr/shader-lib-2/blob/83bd8e1/webpack.config.js#L2)*
+*Defined in [webpack.config.js:2](https://github.com/devjeetr/shader-lib-2/blob/ba2fd65/webpack.config.js#L2)*
 
 #### Type declaration:
 
@@ -73,7 +73,7 @@ ___
 
 • **merge**: *any* = require("webpack-merge")
 
-*Defined in [webpack.config.js:1](https://github.com/devjeetr/shader-lib-2/blob/83bd8e1/webpack.config.js#L1)*
+*Defined in [webpack.config.js:1](https://github.com/devjeetr/shader-lib-2/blob/ba2fd65/webpack.config.js#L1)*
 
 ___
 
@@ -81,4 +81,4 @@ ___
 
 • **webpack**: *any* = require("webpack")
 
-*Defined in [webpack.config.js:3](https://github.com/devjeetr/shader-lib-2/blob/83bd8e1/webpack.config.js#L3)*
+*Defined in [webpack.config.js:3](https://github.com/devjeetr/shader-lib-2/blob/ba2fd65/webpack.config.js#L3)*

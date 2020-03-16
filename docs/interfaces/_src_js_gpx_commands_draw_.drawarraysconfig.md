@@ -20,7 +20,7 @@
 
 • **count**? : *number*
 
-*Defined in [src/js/GPX/Commands/draw.ts:7](https://github.com/devjeetr/shader-lib-2/blob/83bd8e1/src/js/GPX/Commands/draw.ts#L7)*
+*Defined in [src/js/GPX/Commands/draw.ts:7](https://github.com/devjeetr/shader-lib-2/blob/ba2fd65/src/js/GPX/Commands/draw.ts#L7)*
 
 ___
 
@@ -28,7 +28,7 @@ ___
 
 • **first**? : *number*
 
-*Defined in [src/js/GPX/Commands/draw.ts:6](https://github.com/devjeetr/shader-lib-2/blob/83bd8e1/src/js/GPX/Commands/draw.ts#L6)*
+*Defined in [src/js/GPX/Commands/draw.ts:6](https://github.com/devjeetr/shader-lib-2/blob/ba2fd65/src/js/GPX/Commands/draw.ts#L6)*
 
 ___
 
@@ -36,4 +36,4 @@ ___
 
 • **type**? : *GLenum*
 
-*Defined in [src/js/GPX/Commands/draw.ts:5](https://github.com/devjeetr/shader-lib-2/blob/83bd8e1/src/js/GPX/Commands/draw.ts#L5)*
+*Defined in [src/js/GPX/Commands/draw.ts:5](https://github.com/devjeetr/shader-lib-2/blob/ba2fd65/src/js/GPX/Commands/draw.ts#L5)*

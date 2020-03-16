@@ -23,7 +23,7 @@
 
 • **divisor**? : *number*
 
-*Defined in [src/js/GPX/Commands/attribute.ts:8](https://github.com/devjeetr/shader-lib-2/blob/83bd8e1/src/js/GPX/Commands/attribute.ts#L8)*
+*Defined in [src/js/GPX/Commands/attribute.ts:8](https://github.com/devjeetr/shader-lib-2/blob/ba2fd65/src/js/GPX/Commands/attribute.ts#L8)*
 
 ___
 
@@ -31,7 +31,7 @@ ___
 
 • **normalized**? : *boolean*
 
-*Defined in [src/js/GPX/Commands/attribute.ts:11](https://github.com/devjeetr/shader-lib-2/blob/83bd8e1/src/js/GPX/Commands/attribute.ts#L11)*
+*Defined in [src/js/GPX/Commands/attribute.ts:11](https://github.com/devjeetr/shader-lib-2/blob/ba2fd65/src/js/GPX/Commands/attribute.ts#L11)*
 
 ___
 
@@ -39,7 +39,7 @@ ___
 
 • **offset**? : *number*
 
-*Defined in [src/js/GPX/Commands/attribute.ts:9](https://github.com/devjeetr/shader-lib-2/blob/83bd8e1/src/js/GPX/Commands/attribute.ts#L9)*
+*Defined in [src/js/GPX/Commands/attribute.ts:9](https://github.com/devjeetr/shader-lib-2/blob/ba2fd65/src/js/GPX/Commands/attribute.ts#L9)*
 
 ___
 
@@ -47,7 +47,7 @@ ___
 
 • **size**: *number*
 
-*Defined in [src/js/GPX/Commands/attribute.ts:6](https://github.com/devjeetr/shader-lib-2/blob/83bd8e1/src/js/GPX/Commands/attribute.ts#L6)*
+*Defined in [src/js/GPX/Commands/attribute.ts:6](https://github.com/devjeetr/shader-lib-2/blob/ba2fd65/src/js/GPX/Commands/attribute.ts#L6)*
 
 ___
 
@@ -55,7 +55,7 @@ ___
 
 • **stride**? : *number*
 
-*Defined in [src/js/GPX/Commands/attribute.ts:10](https://github.com/devjeetr/shader-lib-2/blob/83bd8e1/src/js/GPX/Commands/attribute.ts#L10)*
+*Defined in [src/js/GPX/Commands/attribute.ts:10](https://github.com/devjeetr/shader-lib-2/blob/ba2fd65/src/js/GPX/Commands/attribute.ts#L10)*
 
 ___
 
@@ -63,4 +63,4 @@ ___
 
 • **type**? : *GLenum*
 
-*Defined in [src/js/GPX/Commands/attribute.ts:7](https://github.com/devjeetr/shader-lib-2/blob/83bd8e1/src/js/GPX/Commands/attribute.ts#L7)*
+*Defined in [src/js/GPX/Commands/attribute.ts:7](https://github.com/devjeetr/shader-lib-2/blob/ba2fd65/src/js/GPX/Commands/attribute.ts#L7)*

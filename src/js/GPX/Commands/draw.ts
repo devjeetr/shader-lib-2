@@ -1,5 +1,6 @@
+import { Command, ProgramState } from "./types";
+
 import { createResolver } from "./helpers";
-import { ProgramState } from "./types";
 
 export interface DrawArraysConfig {
   type?: GLenum;
@@ -7,7 +8,7 @@ export interface DrawArraysConfig {
   count?: number;
 }
 
-export const drawArrays = (config: DrawArraysConfig = {}) => ({
+export const drawArrays = (config: DrawArraysConfig = {}): Command => ({
   resolve: createResolver((state: ProgramState) => {
     const { gl } = state;
     gl.drawArrays(config.type || gl.POINTS, config.first || 0, config.count);
@@ -21,7 +22,7 @@ export interface DrawArraysInstancedConfig {
   instanceCount: number;
 }
 
-export const drawArraysInstanced = (config: DrawArraysInstancedConfig) => ({
+export const drawArraysInstanced = (config: DrawArraysInstancedConfig): Command => ({
   resolve: createResolver((state: ProgramState) => {
     const { gl } = state;
 

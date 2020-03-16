@@ -14,7 +14,7 @@
 
 ▸ **createResolver**(`fn`: function): *(Anonymous function)*
 
-*Defined in [src/js/GPX/Commands/helpers.ts:5](https://github.com/devjeetr/shader-lib-2/blob/83bd8e1/src/js/GPX/Commands/helpers.ts#L5)*
+*Defined in [src/js/GPX/Commands/helpers.ts:5](https://github.com/devjeetr/shader-lib-2/blob/ba2fd65/src/js/GPX/Commands/helpers.ts#L5)*
 
 **Parameters:**
 

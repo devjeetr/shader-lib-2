@@ -39,7 +39,7 @@ void main(void) {
   outColor = vec4(1.0, 0.0, 0.0, alpha);
 }`
 
-*Defined in [src/js/demos/shaders/hello_world.ts:23](https://github.com/devjeetr/shader-lib-2/blob/83bd8e1/src/js/demos/shaders/hello_world.ts#L23)*
+*Defined in [src/js/demos/shaders/hello_world.ts:23](https://github.com/devjeetr/shader-lib-2/blob/ba2fd65/src/js/demos/shaders/hello_world.ts#L23)*
 
 ___
 
@@ -87,4 +87,4 @@ void main() {
   gl_PointSize = 100.0;
 }`
 
-*Defined in [src/js/demos/shaders/hello_world.ts:1](https://github.com/devjeetr/shader-lib-2/blob/83bd8e1/src/js/demos/shaders/hello_world.ts#L1)*
+*Defined in [src/js/demos/shaders/hello_world.ts:1](https://github.com/devjeetr/shader-lib-2/blob/ba2fd65/src/js/demos/shaders/hello_world.ts#L1)*

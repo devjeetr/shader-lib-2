@@ -17,7 +17,7 @@
 
 ▸ **createProgramWithShaders**(`gl`: [WebGL2RenderingContext](../interfaces/_src_js_gpx_webgl_instrumenter_.instrumentedcontext.md#webgl2renderingcontext), `vertexShaderSource`: string, `fragmentShaderSource`: string): *WebGLProgram*
 
-*Defined in [src/js/GPX/utils.ts:30](https://github.com/devjeetr/shader-lib-2/blob/83bd8e1/src/js/GPX/utils.ts#L30)*
+*Defined in [src/js/GPX/utils.ts:30](https://github.com/devjeetr/shader-lib-2/blob/ba2fd65/src/js/GPX/utils.ts#L30)*
 
 **Parameters:**
 
@@ -35,7 +35,7 @@ ___
 
 ▸ **getItemsToUpdate**(`item`: object): *Set‹string›*
 
-*Defined in [src/js/GPX/utils.ts:80](https://github.com/devjeetr/shader-lib-2/blob/83bd8e1/src/js/GPX/utils.ts#L80)*
+*Defined in [src/js/GPX/utils.ts:80](https://github.com/devjeetr/shader-lib-2/blob/ba2fd65/src/js/GPX/utils.ts#L80)*
 
 **Parameters:**
 
@@ -51,7 +51,7 @@ ___
 
 ▸ **loadShader**(`gl`: [WebGL2RenderingContext](../interfaces/_src_js_gpx_webgl_instrumenter_.instrumentedcontext.md#webgl2renderingcontext), `type`: GLenum, `source`: string): *WebGLShader*
 
-*Defined in [src/js/GPX/utils.ts:1](https://github.com/devjeetr/shader-lib-2/blob/83bd8e1/src/js/GPX/utils.ts#L1)*
+*Defined in [src/js/GPX/utils.ts:1](https://github.com/devjeetr/shader-lib-2/blob/ba2fd65/src/js/GPX/utils.ts#L1)*
 
 **Parameters:**
 
@@ -69,7 +69,7 @@ ___
 
 ▸ **resize**(`gl`: [WebGL2RenderingContext](../interfaces/_src_js_gpx_webgl_instrumenter_.instrumentedcontext.md#webgl2renderingcontext)): *void*
 
-*Defined in [src/js/GPX/utils.ts:58](https://github.com/devjeetr/shader-lib-2/blob/83bd8e1/src/js/GPX/utils.ts#L58)*
+*Defined in [src/js/GPX/utils.ts:58](https://github.com/devjeetr/shader-lib-2/blob/ba2fd65/src/js/GPX/utils.ts#L58)*
 
 **Parameters:**
 

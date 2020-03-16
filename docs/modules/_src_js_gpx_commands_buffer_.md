@@ -20,7 +20,7 @@
 
 Ƭ **BufferOptions**: *Omit‹Buffer, "bufferHandle"›*
 
-*Defined in [src/js/GPX/Commands/buffer.ts:4](https://github.com/devjeetr/shader-lib-2/blob/83bd8e1/src/js/GPX/Commands/buffer.ts#L4)*
+*Defined in [src/js/GPX/Commands/buffer.ts:4](https://github.com/devjeetr/shader-lib-2/blob/ba2fd65/src/js/GPX/Commands/buffer.ts#L4)*
 
 ## Functions
 
@@ -28,7 +28,7 @@
 
 ▸ **bindBuffer**(`name`: string): *object*
 
-*Defined in [src/js/GPX/Commands/buffer.ts:19](https://github.com/devjeetr/shader-lib-2/blob/83bd8e1/src/js/GPX/Commands/buffer.ts#L19)*
+*Defined in [src/js/GPX/Commands/buffer.ts:19](https://github.com/devjeetr/shader-lib-2/blob/ba2fd65/src/js/GPX/Commands/buffer.ts#L19)*
 
 **Parameters:**
 
@@ -55,7 +55,7 @@ ___
 
 ▸ **createBuffer**(`name`: string, `opts?`: [BufferOptions](_src_js_gpx_commands_buffer_.md#bufferoptions)): *object*
 
-*Defined in [src/js/GPX/Commands/buffer.ts:5](https://github.com/devjeetr/shader-lib-2/blob/83bd8e1/src/js/GPX/Commands/buffer.ts#L5)*
+*Defined in [src/js/GPX/Commands/buffer.ts:5](https://github.com/devjeetr/shader-lib-2/blob/ba2fd65/src/js/GPX/Commands/buffer.ts#L5)*
 
 **Parameters:**
 
@@ -84,7 +84,7 @@ ___
 
 ▸ **setBufferData**(`name`: string, `data`: any): *object*
 
-*Defined in [src/js/GPX/Commands/buffer.ts:34](https://github.com/devjeetr/shader-lib-2/blob/83bd8e1/src/js/GPX/Commands/buffer.ts#L34)*
+*Defined in [src/js/GPX/Commands/buffer.ts:34](https://github.com/devjeetr/shader-lib-2/blob/ba2fd65/src/js/GPX/Commands/buffer.ts#L34)*
 
 **Parameters:**
 

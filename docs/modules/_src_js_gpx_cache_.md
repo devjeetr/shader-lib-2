@@ -19,7 +19,7 @@
 
 ▸ **ProgramCache**(): *[Cache](../interfaces/_src_js_gpx_cache_.cache.md)*
 
-*Defined in [src/js/GPX/cache.ts:28](https://github.com/devjeetr/shader-lib-2/blob/83bd8e1/src/js/GPX/cache.ts#L28)*
+*Defined in [src/js/GPX/cache.ts:28](https://github.com/devjeetr/shader-lib-2/blob/ba2fd65/src/js/GPX/cache.ts#L28)*
 
 **Returns:** *[Cache](../interfaces/_src_js_gpx_cache_.cache.md)*
 
@@ -29,7 +29,7 @@ ___
 
 ▸ **SimpleMapCache**(): *object*
 
-*Defined in [src/js/GPX/cache.ts:9](https://github.com/devjeetr/shader-lib-2/blob/83bd8e1/src/js/GPX/cache.ts#L9)*
+*Defined in [src/js/GPX/cache.ts:9](https://github.com/devjeetr/shader-lib-2/blob/ba2fd65/src/js/GPX/cache.ts#L9)*
 
 **Returns:** *object*
 

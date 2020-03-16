@@ -2,10 +2,14 @@ import * as R from "ramda";
 
 import { Command, ProgramState } from "./Commands/types";
 
+export * from "./Commands/core";
+
 const createProgramState = (): ProgramState => ({
   attributes: {},
   buffers: {},
   uniforms: {},
+  textures: {},
+  framebuffers: {},
 });
 
 const executeCommands = (state: ProgramState, ...commands: Array<Command>) => {
@@ -17,7 +21,7 @@ const executeCommands = (state: ProgramState, ...commands: Array<Command>) => {
   return Object.freeze(state);
 };
 
-export const GPX = (...commands: Array<Command>): ProgramState => {
+const GPX = (...commands: Array<Command>): ProgramState => {
   let state = createProgramState();
   return executeCommands(state, ...R.flatten(commands));
 };
@@ -43,3 +47,5 @@ GPX.pipeFirst = (_: any, ...commands: PipeCommands) => {
     throw new Error("invalid args passed to pipeFirst");
   });
 };
+
+export default GPX;

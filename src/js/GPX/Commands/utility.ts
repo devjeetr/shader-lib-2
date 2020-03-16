@@ -1,5 +1,6 @@
+import { Command, ProgramState } from "./types";
+
 import { createResolver } from "./helpers";
-import { ProgramState, Command } from "./types";
 import { original } from "immer";
 
 export interface ViewPortConfig {
@@ -9,7 +10,7 @@ export interface ViewPortConfig {
   height?: number;
 }
 
-export const setViewPort = (config: ViewPortConfig = {}) => ({
+export const setViewPort = (config: ViewPortConfig = {}): Command => ({
   resolve: createResolver((state: ProgramState) => {
     const { gl } = state;
     gl.viewport(

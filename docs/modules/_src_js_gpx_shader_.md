@@ -20,7 +20,7 @@
 
 Ƭ **PipeCommands**: *any*
 
-*Defined in [src/js/GPX/shader.ts:29](https://github.com/devjeetr/shader-lib-2/blob/83bd8e1/src/js/GPX/shader.ts#L29)*
+*Defined in [src/js/GPX/shader.ts:29](https://github.com/devjeetr/shader-lib-2/blob/ba2fd65/src/js/GPX/shader.ts#L29)*
 
 ## Functions
 
@@ -28,7 +28,7 @@
 
 ▸ **GPX**(...`commands`: Array‹[Command](../interfaces/_src_js_gpx_commands_types_.command.md)›): *[ProgramState](../interfaces/_src_js_gpx_commands_types_.programstate.md)*
 
-*Defined in [src/js/GPX/shader.ts:20](https://github.com/devjeetr/shader-lib-2/blob/83bd8e1/src/js/GPX/shader.ts#L20)*
+*Defined in [src/js/GPX/shader.ts:20](https://github.com/devjeetr/shader-lib-2/blob/ba2fd65/src/js/GPX/shader.ts#L20)*
 
 **Parameters:**
 
@@ -44,7 +44,7 @@ ___
 
 ▸ **createProgramState**(): *[ProgramState](../interfaces/_src_js_gpx_commands_types_.programstate.md)*
 
-*Defined in [src/js/GPX/shader.ts:5](https://github.com/devjeetr/shader-lib-2/blob/83bd8e1/src/js/GPX/shader.ts#L5)*
+*Defined in [src/js/GPX/shader.ts:5](https://github.com/devjeetr/shader-lib-2/blob/ba2fd65/src/js/GPX/shader.ts#L5)*
 
 **Returns:** *[ProgramState](../interfaces/_src_js_gpx_commands_types_.programstate.md)*
 
@@ -54,7 +54,7 @@ ___
 
 ▸ **executeCommands**(`state`: [ProgramState](../interfaces/_src_js_gpx_commands_types_.programstate.md), ...`commands`: Array‹[Command](../interfaces/_src_js_gpx_commands_types_.command.md)›): *object*
 
-*Defined in [src/js/GPX/shader.ts:11](https://github.com/devjeetr/shader-lib-2/blob/83bd8e1/src/js/GPX/shader.ts#L11)*
+*Defined in [src/js/GPX/shader.ts:11](https://github.com/devjeetr/shader-lib-2/blob/ba2fd65/src/js/GPX/shader.ts#L11)*
 
 **Parameters:**
 

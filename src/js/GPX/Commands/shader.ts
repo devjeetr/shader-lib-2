@@ -1,6 +1,7 @@
-import { createResolver } from "./helpers";
-import { ProgramState } from "./types";
+import { Command, ProgramState } from "./types";
+
 import { createProgramWithShaders } from "../utils";
+import { createResolver } from "./helpers";
 import { instrumentContext } from "../webgl/instrumenter";
 
 export interface ShaderSources {
@@ -8,7 +9,17 @@ export interface ShaderSources {
   fs: string;
 }
 
-export const createProgramAndCompileShaders = ({ vs, fs }: ShaderSources) => {
+/**
+ * Creates a command that:
+ * * compiles the provided vertex and fragment shaders,
+ * * creates a new program
+ * * links the compiled shaders to the program
+ * @param sources 
+ * @param sources.vs The source code for the vertex shader
+ * @param sources.fs the source code for the fragment shader
+ * @returns a command
+ */
+export const createProgramAndCompileShaders = ({ vs, fs }: ShaderSources): Command => {
   return {
     opts: {},
     resolve: createResolver((state: ProgramState) => {
@@ -19,7 +30,7 @@ export const createProgramAndCompileShaders = ({ vs, fs }: ShaderSources) => {
   };
 };
 
-export const fetchContext = (canvas: HTMLCanvasElement) => {
+export const fetchContext = (canvas: HTMLCanvasElement): Command => {
   return {
     opts: {},
     resolve: createResolver((state: ProgramState) => {
@@ -30,7 +41,7 @@ export const fetchContext = (canvas: HTMLCanvasElement) => {
   };
 };
 
-export const useProgram = () => ({
+export const useProgram = (): Command => ({
   resolve: createResolver((state: ProgramState) => {
     const { gl, program } = state;
 

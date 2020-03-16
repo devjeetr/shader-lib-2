@@ -39,7 +39,7 @@
     outColor = vec4(1, 0, 0.5, 1);
     }`
 
-*Defined in [src/js/demos/shaders/square_indexed.ts:13](https://github.com/devjeetr/shader-lib-2/blob/83bd8e1/src/js/demos/shaders/square_indexed.ts#L13)*
+*Defined in [src/js/demos/shaders/square_indexed.ts:13](https://github.com/devjeetr/shader-lib-2/blob/ba2fd65/src/js/demos/shaders/square_indexed.ts#L13)*
 
 ___
 
@@ -69,4 +69,4 @@ ___
         gl_Position = a_position;
       }`
 
-*Defined in [src/js/demos/shaders/square_indexed.ts:1](https://github.com/devjeetr/shader-lib-2/blob/83bd8e1/src/js/demos/shaders/square_indexed.ts#L1)*
+*Defined in [src/js/demos/shaders/square_indexed.ts:1](https://github.com/devjeetr/shader-lib-2/blob/ba2fd65/src/js/demos/shaders/square_indexed.ts#L1)*

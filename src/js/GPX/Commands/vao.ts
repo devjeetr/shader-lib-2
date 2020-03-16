@@ -1,14 +1,15 @@
-import { createResolver } from "./helpers";
-import { ProgramState } from "./types";
+import { Command, ProgramState } from "./types";
 
-export const createVao = () => ({
+import { createResolver } from "./helpers";
+
+export const createVao = (): Command => ({
   resolve: createResolver((state: ProgramState) => {
     const { gl } = state;
     state.vao = gl.createVertexArray();
   })
 });
 
-export const bindVao = () => ({
+export const bindVao = (): Command => ({
   resolve: createResolver((state: ProgramState) => {
     const { gl, vao } = state;
 

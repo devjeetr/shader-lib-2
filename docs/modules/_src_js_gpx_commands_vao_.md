@@ -15,7 +15,7 @@
 
 ▸ **bindVao**(): *object*
 
-*Defined in [src/js/GPX/Commands/vao.ts:11](https://github.com/devjeetr/shader-lib-2/blob/83bd8e1/src/js/GPX/Commands/vao.ts#L11)*
+*Defined in [src/js/GPX/Commands/vao.ts:11](https://github.com/devjeetr/shader-lib-2/blob/ba2fd65/src/js/GPX/Commands/vao.ts#L11)*
 
 **Returns:** *object*
 
@@ -31,7 +31,7 @@ ___
 
 ▸ **createVao**(): *object*
 
-*Defined in [src/js/GPX/Commands/vao.ts:4](https://github.com/devjeetr/shader-lib-2/blob/83bd8e1/src/js/GPX/Commands/vao.ts#L4)*
+*Defined in [src/js/GPX/Commands/vao.ts:4](https://github.com/devjeetr/shader-lib-2/blob/ba2fd65/src/js/GPX/Commands/vao.ts#L4)*
 
 **Returns:** *object*
 

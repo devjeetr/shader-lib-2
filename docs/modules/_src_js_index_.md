@@ -17,7 +17,7 @@
 
 • **canvas**: *HTMLCanvasElement* = document.createElement("canvas")
 
-*Defined in [src/js/index.ts:24](https://github.com/devjeetr/shader-lib-2/blob/83bd8e1/src/js/index.ts#L24)*
+*Defined in [src/js/index.ts:24](https://github.com/devjeetr/shader-lib-2/blob/ba2fd65/src/js/index.ts#L24)*
 
 ___
 
@@ -25,7 +25,7 @@ ___
 
 • **gl**: *[WebGL2RenderingContext](../interfaces/_src_js_gpx_webgl_instrumenter_.instrumentedcontext.md#webgl2renderingcontext)* = canvas.getContext("webgl2")
 
-*Defined in [src/js/index.ts:28](https://github.com/devjeetr/shader-lib-2/blob/83bd8e1/src/js/index.ts#L28)*
+*Defined in [src/js/index.ts:28](https://github.com/devjeetr/shader-lib-2/blob/ba2fd65/src/js/index.ts#L28)*
 
 ___
 
@@ -39,7 +39,7 @@ ___
   bindVao()
 )
 
-*Defined in [src/js/index.ts:34](https://github.com/devjeetr/shader-lib-2/blob/83bd8e1/src/js/index.ts#L34)*
+*Defined in [src/js/index.ts:34](https://github.com/devjeetr/shader-lib-2/blob/ba2fd65/src/js/index.ts#L34)*
 
 ___
 
@@ -62,4 +62,4 @@ ___
   drawArrays({ count: 1 })
 )
 
-*Defined in [src/js/index.ts:42](https://github.com/devjeetr/shader-lib-2/blob/83bd8e1/src/js/index.ts#L42)*
+*Defined in [src/js/index.ts:42](https://github.com/devjeetr/shader-lib-2/blob/ba2fd65/src/js/index.ts#L42)*

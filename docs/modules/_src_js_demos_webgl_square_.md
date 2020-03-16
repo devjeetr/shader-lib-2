@@ -14,7 +14,7 @@
 
 ▸ **square_demo**(`gl`: [WebGL2RenderingContext](../interfaces/_src_js_gpx_webgl_instrumenter_.instrumentedcontext.md#webgl2renderingcontext)): *void*
 
-*Defined in [src/js/demos/webgl/square.ts:5](https://github.com/devjeetr/shader-lib-2/blob/83bd8e1/src/js/demos/webgl/square.ts#L5)*
+*Defined in [src/js/demos/webgl/square.ts:5](https://github.com/devjeetr/shader-lib-2/blob/ba2fd65/src/js/demos/webgl/square.ts#L5)*
 
 **Parameters:**
 

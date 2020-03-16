@@ -15,7 +15,7 @@
 
 ▸ **initUniform**(`name`: string): *object*
 
-*Defined in [src/js/GPX/Commands/uniform.ts:8](https://github.com/devjeetr/shader-lib-2/blob/83bd8e1/src/js/GPX/Commands/uniform.ts#L8)*
+*Defined in [src/js/GPX/Commands/uniform.ts:8](https://github.com/devjeetr/shader-lib-2/blob/ba2fd65/src/js/GPX/Commands/uniform.ts#L8)*
 
 Fetches the given uniform's location.
 
@@ -45,7 +45,7 @@ ___
 
 ▸ **updateUniform**(`name`: string, `fn`: Function): *object*
 
-*Defined in [src/js/GPX/Commands/uniform.ts:29](https://github.com/devjeetr/shader-lib-2/blob/83bd8e1/src/js/GPX/Commands/uniform.ts#L29)*
+*Defined in [src/js/GPX/Commands/uniform.ts:29](https://github.com/devjeetr/shader-lib-2/blob/ba2fd65/src/js/GPX/Commands/uniform.ts#L29)*
 
 Takes a callback that is provided the
 WebGL context and uniform location, and

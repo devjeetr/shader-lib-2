@@ -1,3 +1,15 @@
+import {
+  GL_CLAMP_TO_EDGE,
+  GL_LINEAR,
+  GL_LINEAR_MIPMAP_LINEAR,
+  GL_LINEAR_MIPMAP_NEAREST,
+  GL_MIRRORED_REPEAT,
+  GL_NEAREST,
+  GL_NEAREST_MIPMAP_LINEAR,
+  GL_NEAREST_MIPMAP_NEAREST,
+  GL_REPEAT
+} from "../webgl/constants";
+
 export interface ProgramState {
   gl?: WebGL2RenderingContext;
   program?: WebGLProgram;
@@ -5,6 +17,8 @@ export interface ProgramState {
   attributes: Attributes;
   uniforms: Uniforms;
   buffers: Buffers;
+  textures: Textures;
+  framebuffers: FrameBuffers;
 }
 
 export interface Uniform {
@@ -37,6 +51,40 @@ export interface Attribute {
   stride: number;
   normalized: boolean;
   divisor?: number;
+}
+
+export interface FrameBuffer {
+  handle: WebGLFramebuffer;
+  attachment?: GLenum;
+  level?: number;
+}
+
+export interface FrameBuffers {
+  [key: string]: FrameBuffer;
+}
+
+export interface Texture {
+  handle: WebGLTexture;
+  height: number;
+  width: number;
+  format: GLenum;
+  type: GLenum;
+  level?: number;
+  target?: GLenum;
+  mag?: GL_LINEAR | GL_NEAREST;
+  min?:
+    | GL_LINEAR
+    | GL_NEAREST
+    | GL_LINEAR_MIPMAP_NEAREST
+    | GL_NEAREST_MIPMAP_NEAREST
+    | GL_NEAREST_MIPMAP_LINEAR
+    | GL_LINEAR_MIPMAP_LINEAR;
+  wrap_s?: GL_REPEAT | GL_CLAMP_TO_EDGE | GL_MIRRORED_REPEAT;
+  wrap_t?: GL_REPEAT | GL_CLAMP_TO_EDGE | GL_MIRRORED_REPEAT;
+}
+
+export interface Textures {
+  [key: string]: Texture;
 }
 
 export interface Command {

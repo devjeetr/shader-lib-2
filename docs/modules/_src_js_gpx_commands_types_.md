@@ -28,7 +28,7 @@
 
 Ƭ **BufferTarget**: *GLenum*
 
-*Defined in [src/js/GPX/Commands/types.ts:21](https://github.com/devjeetr/shader-lib-2/blob/83bd8e1/src/js/GPX/Commands/types.ts#L21)*
+*Defined in [src/js/GPX/Commands/types.ts:21](https://github.com/devjeetr/shader-lib-2/blob/ba2fd65/src/js/GPX/Commands/types.ts#L21)*
 
 ___
 
@@ -36,7 +36,7 @@ ___
 
 Ƭ **BufferUsage**: *GLenum*
 
-*Defined in [src/js/GPX/Commands/types.ts:22](https://github.com/devjeetr/shader-lib-2/blob/83bd8e1/src/js/GPX/Commands/types.ts#L22)*
+*Defined in [src/js/GPX/Commands/types.ts:22](https://github.com/devjeetr/shader-lib-2/blob/ba2fd65/src/js/GPX/Commands/types.ts#L22)*
 
 ___
 
@@ -44,7 +44,7 @@ ___
 
 Ƭ **CommandDispatcher**: *function*
 
-*Defined in [src/js/GPX/Commands/types.ts:49](https://github.com/devjeetr/shader-lib-2/blob/83bd8e1/src/js/GPX/Commands/types.ts#L49)*
+*Defined in [src/js/GPX/Commands/types.ts:49](https://github.com/devjeetr/shader-lib-2/blob/ba2fd65/src/js/GPX/Commands/types.ts#L49)*
 
 #### Type declaration:
 
@@ -62,4 +62,4 @@ ___
 
 Ƭ **StateAndCache**: *[[ProgramState](../interfaces/_src_js_gpx_commands_types_.programstate.md), Cache]*
 
-*Defined in [src/js/GPX/Commands/types.ts:47](https://github.com/devjeetr/shader-lib-2/blob/83bd8e1/src/js/GPX/Commands/types.ts#L47)*
+*Defined in [src/js/GPX/Commands/types.ts:47](https://github.com/devjeetr/shader-lib-2/blob/ba2fd65/src/js/GPX/Commands/types.ts#L47)*

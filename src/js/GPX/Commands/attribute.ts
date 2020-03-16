@@ -12,10 +12,23 @@ export interface AttributeConfig {
 }
 
 /**
+ * Creates a command to initialize the shader attribute 
+ * with the given name.
  * 
  * @param name The name of the attribute
  * @param config attribute config.
- * @returns a
+ * @returns the generated command.
+ * @example
+ * ```
+ *  GPX(
+ *    initAttribute("a_position", 
+ *      {
+ *        size: 2,
+ *      }
+ *    )
+ * )
+ * ```
+ * 
  */
 export const initAttribute = (name: string, config: AttributeConfig): Command => ({
   resolve: createResolver((state: ProgramState) => {
@@ -38,6 +51,10 @@ export const initAttribute = (name: string, config: AttributeConfig): Command =>
   })
 });
 
+/**
+ * Configures the given attribute
+ * @param name the name of the attribute to configure
+ */
 export const configureAttribute = (name: string): Command => ({
   resolve: createResolver((state: ProgramState) => {
     const { gl, attributes } = state;

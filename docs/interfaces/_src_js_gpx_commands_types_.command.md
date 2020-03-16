@@ -19,7 +19,7 @@
 
 • **opts**? : *any*
 
-*Defined in [src/js/GPX/Commands/types.ts:43](https://github.com/devjeetr/shader-lib-2/blob/83bd8e1/src/js/GPX/Commands/types.ts#L43)*
+*Defined in [src/js/GPX/Commands/types.ts:43](https://github.com/devjeetr/shader-lib-2/blob/ba2fd65/src/js/GPX/Commands/types.ts#L43)*
 
 ___
 
@@ -27,7 +27,7 @@ ___
 
 • **resolve**: *function*
 
-*Defined in [src/js/GPX/Commands/types.ts:44](https://github.com/devjeetr/shader-lib-2/blob/83bd8e1/src/js/GPX/Commands/types.ts#L44)*
+*Defined in [src/js/GPX/Commands/types.ts:44](https://github.com/devjeetr/shader-lib-2/blob/ba2fd65/src/js/GPX/Commands/types.ts#L44)*
 
 #### Type declaration:
 

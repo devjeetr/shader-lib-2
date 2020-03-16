@@ -18,4 +18,4 @@
 
 • **location**: *WebGLUniformLocation*
 
-*Defined in [src/js/GPX/Commands/types.ts:11](https://github.com/devjeetr/shader-lib-2/blob/83bd8e1/src/js/GPX/Commands/types.ts#L11)*
+*Defined in [src/js/GPX/Commands/types.ts:11](https://github.com/devjeetr/shader-lib-2/blob/ba2fd65/src/js/GPX/Commands/types.ts#L11)*

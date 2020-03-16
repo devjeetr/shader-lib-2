@@ -21,7 +21,7 @@
 
 • **height**? : *number*
 
-*Defined in [src/js/GPX/Commands/utility.ts:9](https://github.com/devjeetr/shader-lib-2/blob/83bd8e1/src/js/GPX/Commands/utility.ts#L9)*
+*Defined in [src/js/GPX/Commands/utility.ts:9](https://github.com/devjeetr/shader-lib-2/blob/ba2fd65/src/js/GPX/Commands/utility.ts#L9)*
 
 ___
 
@@ -29,7 +29,7 @@ ___
 
 • **width**? : *number*
 
-*Defined in [src/js/GPX/Commands/utility.ts:8](https://github.com/devjeetr/shader-lib-2/blob/83bd8e1/src/js/GPX/Commands/utility.ts#L8)*
+*Defined in [src/js/GPX/Commands/utility.ts:8](https://github.com/devjeetr/shader-lib-2/blob/ba2fd65/src/js/GPX/Commands/utility.ts#L8)*
 
 ___
 
@@ -37,7 +37,7 @@ ___
 
 • **x**? : *number*
 
-*Defined in [src/js/GPX/Commands/utility.ts:6](https://github.com/devjeetr/shader-lib-2/blob/83bd8e1/src/js/GPX/Commands/utility.ts#L6)*
+*Defined in [src/js/GPX/Commands/utility.ts:6](https://github.com/devjeetr/shader-lib-2/blob/ba2fd65/src/js/GPX/Commands/utility.ts#L6)*
 
 ___
 
@@ -45,4 +45,4 @@ ___
 
 • **y**? : *number*
 
-*Defined in [src/js/GPX/Commands/utility.ts:7](https://github.com/devjeetr/shader-lib-2/blob/83bd8e1/src/js/GPX/Commands/utility.ts#L7)*
+*Defined in [src/js/GPX/Commands/utility.ts:7](https://github.com/devjeetr/shader-lib-2/blob/ba2fd65/src/js/GPX/Commands/utility.ts#L7)*

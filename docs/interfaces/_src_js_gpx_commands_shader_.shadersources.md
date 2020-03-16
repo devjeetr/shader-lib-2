@@ -19,7 +19,7 @@
 
 • **fs**: *string*
 
-*Defined in [src/js/GPX/Commands/shader.ts:8](https://github.com/devjeetr/shader-lib-2/blob/83bd8e1/src/js/GPX/Commands/shader.ts#L8)*
+*Defined in [src/js/GPX/Commands/shader.ts:8](https://github.com/devjeetr/shader-lib-2/blob/ba2fd65/src/js/GPX/Commands/shader.ts#L8)*
 
 ___
 
@@ -27,4 +27,4 @@ ___
 
 • **vs**: *string*
 
-*Defined in [src/js/GPX/Commands/shader.ts:7](https://github.com/devjeetr/shader-lib-2/blob/83bd8e1/src/js/GPX/Commands/shader.ts#L7)*
+*Defined in [src/js/GPX/Commands/shader.ts:7](https://github.com/devjeetr/shader-lib-2/blob/ba2fd65/src/js/GPX/Commands/shader.ts#L7)*
