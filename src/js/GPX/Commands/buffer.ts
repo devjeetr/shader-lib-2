@@ -13,10 +13,7 @@ export type BufferOptions = Omit<Buffer, "handle">;
  * @returns the newly generated command
  *
  */
-export const bindBuffer = (buffer: BufferResource): Command => {
-  return {
-    resolve: createResolver((state: ProgramState) => {
-      buffer.bind();
-    })
-  };
-};
+export const bindBuffer = (buffer: BufferResource): Command =>
+  createResolver((state: ProgramState) => {
+    buffer.bind();
+  });

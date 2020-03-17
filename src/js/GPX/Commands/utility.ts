@@ -10,8 +10,7 @@ export interface ViewPortConfig {
   height?: number;
 }
 
-export const setViewPort = (config: ViewPortConfig = {}): Command => ({
-  resolve: createResolver((state: ProgramState) => {
+export const setViewPort = (config: ViewPortConfig = {}): Command => createResolver((state: ProgramState) => {
     const { gl } = state;
     gl.viewport(
       config.x || 0,
@@ -20,15 +19,11 @@ export const setViewPort = (config: ViewPortConfig = {}): Command => ({
       config.height || gl.canvas.height
     );
   })
-});
 
-export const logState = (message: string): Command => ({
-  resolve: createResolver((state: ProgramState) => {
+export const logState = (message: string): Command => createResolver((state: ProgramState) => {
     console.log(message);
     console.log(original(state));
-  })
-});
-
+  });
 export interface ClearConfig {
 
 }
@@ -53,8 +48,7 @@ export interface BlendConfig {
   }
 };
 
-export const blend = (config: BlendConfig): Command => ({
-  resolve: createResolver((state: ProgramState) => {
+export const blend = (config: BlendConfig): Command => createResolver((state: ProgramState) => {
     const { gl } = state;
     
     if (config.func) {
@@ -66,5 +60,4 @@ export const blend = (config: BlendConfig): Command => ({
     if (config.enable) {
       gl.enable(gl.BLEND);
     }
-  })
-})
+  });

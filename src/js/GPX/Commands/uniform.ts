@@ -6,22 +6,28 @@ import { createResolver } from "./helpers";
  * Fetches the given uniform's location.
  * @param name The name of the uniform to be initialized
  */
-export const initUniform = (name: string): Command => ({
-  resolve: createResolver((state: ProgramState) => {
+export const initUniform = (
+  name: string,
+  { type, offset, length, data }: UniformConfig
+): Command =>
+  createResolver((state: ProgramState) => {
     const { gl, program } = state;
     const location = gl.getUniformLocation(program, name);
-    console.log(location);
     if (location === null) {
-      console.error(`Uniform location not found: ${name}`);
+      throw new Error(`Uniform location not found: ${name}`);
     }
     state.uniforms[name] = {
-      location
+      location,
+      type,
+      offset: offset || 0,
+      length: length || 0
     };
-  })
-});
+  });
 
-export type UniformUpdateType =
-    "uniform1f"
+export type UniformType =
+  | "uniform1i"
+  | "uniform1f"
+  | "uniform2f"
   | "uniform1ui"
   | "uniform2ui"
   | "uniform3ui"
@@ -39,11 +45,11 @@ export type UniformUpdateType =
   | "uniform3uiv"
   | "uniform4uiv";
 
-export interface UniformUpdateConfig {
-  type: UniformUpdateType;
-  data: any;
+export interface UniformConfig {
+  type: UniformType;
   offset?: number;
   length?: number;
+  data?: number | Array<number>;
 }
 /**
  * Takes a callback that is provided the
@@ -52,21 +58,20 @@ export interface UniformUpdateConfig {
  * @param name the name of the uniform
  * @param fn the function used to update the uniform
  */
-export const updateUniform = (
-  name: string,
-  { type, data, offset, length }: UniformUpdateConfig
-): Command => ({
-  resolve: createResolver((state: ProgramState) => {
+export const updateUniform = (name: string, ...data: any): Command =>
+  createResolver((state: ProgramState) => {
     const { gl, uniforms } = state;
-    const location = uniforms[name].location;
+    const { location, type, offset } = uniforms[name];
 
     switch (type) {
       case "uniform1ui":
       case "uniform1f":
+      case "uniform1i":
         gl[type](location, data[0]);
         break;
       case "uniform2ui":
-        gl.uniform2ui(location, data[0], data[1]);
+      case "uniform2f":
+        gl[type](location, data[0], data[1]);
         break;
       case "uniform3ui":
         gl.uniform3ui(location, data[0], data[1], data[2]);
@@ -86,11 +91,9 @@ export const updateUniform = (
       case "uniform2uiv":
       case "uniform3uiv":
       case "uniform4uiv":
-        gl[type](location, data, offset,);
+        gl[type](location, data[0], offset);
         break;
       default:
         throw new Error(`Invalid uniform update type passed: ${type}`);
     }
-  })
-});
-
+  });

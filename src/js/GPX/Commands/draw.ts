@@ -3,17 +3,16 @@ import { ProgramState } from "../GPX";
 import { createResolver } from "./helpers";
 
 export interface DrawArraysConfig {
-  type?: GLenum;
+  mode?: GLenum;
   first?: number;
   count: number;
 }
 
-export const drawArrays = (config: DrawArraysConfig): Command => ({
-  resolve: createResolver((state: ProgramState) => {
+export const drawArrays = (config: DrawArraysConfig): Command =>
+  createResolver((state: ProgramState) => {
     const { gl } = state;
-    gl.drawArrays(config.type || gl.POINTS, config.first || 0, config.count);
-  })
-});
+    gl.drawArrays(config.mode || gl.POINTS, config.first || 0, config.count);
+  });
 
 export interface DrawArraysInstancedConfig {
   mode?: GLenum;
@@ -22,8 +21,10 @@ export interface DrawArraysInstancedConfig {
   instanceCount: number;
 }
 
-export const drawArraysInstanced = (config: DrawArraysInstancedConfig): Command => ({
-  resolve: createResolver((state: ProgramState) => {
+export const drawArraysInstanced = (
+  config: DrawArraysInstancedConfig
+): Command =>
+  createResolver((state: ProgramState) => {
     const { gl } = state;
 
     gl.drawArraysInstanced(
@@ -32,5 +33,4 @@ export const drawArraysInstanced = (config: DrawArraysInstancedConfig): Command 
       config.count,
       config.instanceCount
     );
-  })
-});
+  });

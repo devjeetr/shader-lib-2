@@ -12,26 +12,26 @@ export interface AttributeConfig {
 }
 
 /**
- * Creates a command to initialize the shader attribute 
+ * Creates a command to initialize the shader attribute
  * with the given name.
- * 
+ *
  * @param name The name of the attribute
  * @param config attribute config.
  * @returns the generated command.
  * @example
  * ```
  *  GPX(
- *    initAttribute("a_position", 
+ *    initAttribute("a_position",
  *      {
  *        size: 2,
  *      }
  *    )
  * )
  * ```
- * 
+ *
  */
-export const initAttribute = (name: string, config: AttributeConfig): Command => ({
-  resolve: createResolver((state: ProgramState) => {
+export const initAttribute = (name: string, config: AttributeConfig): Command =>
+  createResolver((state: ProgramState) => {
     const { gl, program, attributes } = state;
     const location = gl.getAttribLocation(program, name);
 
@@ -48,15 +48,14 @@ export const initAttribute = (name: string, config: AttributeConfig): Command =>
       normalized: config.normalized || false,
       divisor: config.divisor
     };
-  })
-});
+  });
 
 /**
  * Configures the given attribute
  * @param name the name of the attribute to configure
  */
-export const configureAttribute = (name: string): Command => ({
-  resolve: createResolver((state: ProgramState) => {
+export const configureAttribute = (name: string): Command =>
+  createResolver((state: ProgramState) => {
     const { gl, attributes } = state;
     const attribute = attributes[name];
 
@@ -73,5 +72,4 @@ export const configureAttribute = (name: string): Command => ({
     if (!(attribute.divisor === null || attribute.divisor === undefined)) {
       gl.vertexAttribDivisor(attribute.location, attribute.divisor);
     }
-  })
-});
+  });

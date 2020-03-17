@@ -15,6 +15,9 @@ import { ProgramState } from "../GPX";
 
 export interface Uniform {
   location: WebGLUniformLocation;
+  type: string;
+  offset: number;
+  length: number;
 }
 export interface Uniforms {
   [key: string]: Uniform;
@@ -73,9 +76,6 @@ export interface Textures {
   [key: string]: Texture;
 }
 
-export interface Command {
-  opts?: any;
-  resolve: (state: ProgramState) => ProgramState;
-}
+export type Command = (state: ProgramState) => ProgramState;
 
 export type CommandDispatcher = (...any: any[]) => Command;

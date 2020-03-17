@@ -6,6 +6,5 @@ export * from "./buffer";
 export * from "./draw";
 export * from "./shader";
 export * from "./vao";
-export * from "./texture";
-
+export * from "./initializers";
 export * from "./framebuffer";

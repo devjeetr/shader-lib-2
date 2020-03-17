@@ -15,10 +15,9 @@ export * from "./resources/buffer";
 export * from "./resources/framebuffer";
 export * from "./resources/texture";
 
-
 export * from "./Commands/core";
 
-const createProgramState = (): ProgramState => ({
+export const createProgramState = (): ProgramState => ({
   attributes: {},
   buffers: {},
   uniforms: {},
@@ -39,7 +38,7 @@ export interface ProgramState {
 
 const executeCommands = (state: ProgramState, ...commands: Array<Command>) => {
   for (let i = 0; i < commands.length; i++) {
-    const nextState = commands[i].resolve(state);
+    const nextState = commands[i](state);
     state = nextState;
   }
 
@@ -54,9 +53,8 @@ const GPX = (...commands: Array<Command>): ProgramState => {
 GPX.withState = (state: ProgramState) => (...commands: Array<Command>) =>
   executeCommands(state, ...R.flatten(commands));
 
-GPX.Compose = (...commands: Array<Command>) => () => ({
-  resolve: (state: ProgramState) => executeCommands(state, ...commands)
-});
+GPX.Compose = (...commands: Array<Command>) => () => (state: ProgramState) =>
+  executeCommands(state, ...commands); 
 
 GPX.createState = (): ProgramState => createProgramState();
 
@@ -80,6 +78,6 @@ GPX.pipeFirst = (_: any, ...commands: PipeCommands) => {
 GPX.getContext = (canvas: HTMLCanvasElement) => {
   const gl = canvas.getContext("webgl2");
   return instrumentContext(gl);
-}
+};
 
 export default GPX;

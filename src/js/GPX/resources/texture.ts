@@ -13,9 +13,8 @@ import {
 export interface TextureResource {
   target: () => GLenum;
   handle: () => WebGLTexture;
-  bind: () => void;
+  bind: (n: number) => void;
   init: () => void;
-  clear: () => void;
 }
 
 export interface TextureConfig {
@@ -43,7 +42,7 @@ export const texture = (
     level: 0,
     target: gl.TEXTURE_2D,
     format: gl.RGBA,
-    type: gl.FLOAT
+    type: gl.UNSIGNED_BYTE
   }
 ) => {
   const handle = gl.createTexture();
@@ -51,9 +50,11 @@ export const texture = (
   return {
     target: () => config.target,
     handle: () => handle,
-    bind: () => gl.bindTexture(config.target, handle),
+    bind: (n: number) => {
+      gl.activeTexture(gl.TEXTURE0)
+      gl.bindTexture(config.target, handle)},
     init: () => {
-        // gl.bindTexture(config.target, handle);
+        gl.bindTexture(config.target, handle);
         
         // set wrap_s
         if (config.wrap_s) {
@@ -61,7 +62,7 @@ export const texture = (
         }
         // set wrap_t
         if (config.wrap_t) {
-            gl.texParameteri(config.target, gl.TEXTURE_WRAP_R, config.wrap_t);
+            gl.texParameteri(config.target, gl.TEXTURE_WRAP_T, config.wrap_t);
         }
         // set mag
         if (config.mag) {
@@ -71,19 +72,18 @@ export const texture = (
         if (config.min) {
             gl.texParameteri(config.target, gl.TEXTURE_MIN_FILTER, config.min);
         }
+
+        gl.texImage2D(
+          config.target,
+          config.level,
+          config.format,
+          config.width || gl.canvas.width,
+          config.height || gl.canvas.height,
+          0,
+          config.format,
+          config.type,
+          null
+        );
     },
-    clear: () => {
-      gl.texImage2D(
-        config.target,
-        config.level,
-        config.format,
-        config.width || gl.canvas.width,
-        config.height || gl.canvas.height,
-        0,
-        config.format,
-        config.type,
-        null
-      );
-    }
   };
 };
