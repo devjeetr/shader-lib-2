@@ -1,5 +1,5 @@
-import { Command, ProgramState } from "./types";
-
+import { Command } from "./types";
+import { ProgramState } from "../GPX";
 import { createProgramWithShaders } from "../utils";
 import { createResolver } from "./helpers";
 import { instrumentContext } from "../webgl/instrumenter";
@@ -40,6 +40,15 @@ export const fetchContext = (canvas: HTMLCanvasElement): Command => {
     })
   };
 };
+
+export const withContext = (gl: WebGL2RenderingContext): Command => {
+  return {
+    opts: {},
+    resolve: createResolver((state: ProgramState) => {
+      state.gl = gl;
+    })
+  };
+}
 
 export const useProgram = (): Command => ({
   resolve: createResolver((state: ProgramState) => {

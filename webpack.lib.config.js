@@ -7,6 +7,14 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 module.exports = {
   entry: "./src/js/GPX/GPX.ts",
   mode: "production",
+  output: {
+    path: path.resolve(__dirname, 'dist/'),
+    filename: 'GPX.js',
+    library: "GPX",
+    libraryTarget: 'umd',
+    library: 'GPX',
+    umdNamedDefine: true
+  },
   optimization: {
     usedExports: true,
     minimizer: [new TerserPlugin()]

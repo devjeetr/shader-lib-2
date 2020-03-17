@@ -1,8 +1,8 @@
 {
-  "name": "shader-library",
+  "name": "GPX",
   "version": "1.0.0",
   "description": "A webgl2 shader library",
-  "main": "index.js",
+  "main": "./dist/GPX.js",
   "author": "Devjeet Roy <devjeetrr@gmail.com>",
   "license": "MIT",
   "scripts": {

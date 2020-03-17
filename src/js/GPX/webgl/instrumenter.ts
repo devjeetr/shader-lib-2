@@ -19,7 +19,6 @@ export const instrumentContext = (gl: WebGL2RenderingContext): InstrumentedConte
             // @ts-ignore
             instrumented[key] = (...args) => {
                 glCallCount += 1;
-                console.log(`Calling gl.${key}`)
                 // @ts-ignore
                 return gl[key](...args);
             };

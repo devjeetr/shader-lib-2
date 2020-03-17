@@ -1,5 +1,5 @@
-import { Command, ProgramState } from "./types";
-
+import { Command } from "./types";
+import { ProgramState } from "../GPX";
 import { createResolver } from "./helpers";
 import { original } from "immer";
 
@@ -28,3 +28,43 @@ export const logState = (message: string): Command => ({
     console.log(original(state));
   })
 });
+
+export interface ClearConfig {
+
+}
+
+export const clear = (config: ClearConfig) => ({
+  resolve: createResolver((state: ProgramState) => {
+
+  })
+});
+
+export interface BlendConfig {
+  enable: boolean,
+  func?: {
+    srcRGB?: GLenum,
+    srcAlpha?: number,
+    dstRGB?: GLenum,
+    dstAlpha?: number
+  },
+  equation?: {
+    rgb?: GLenum,
+    alpha?: GLenum,
+  }
+};
+
+export const blend = (config: BlendConfig): Command => ({
+  resolve: createResolver((state: ProgramState) => {
+    const { gl } = state;
+    
+    if (config.func) {
+      if (config.func.srcAlpha) {
+        gl.blendFunc(gl.SRC_ALPHA, config.func.srcAlpha);
+      }
+    }
+
+    if (config.enable) {
+      gl.enable(gl.BLEND);
+    }
+  })
+})

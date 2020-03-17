@@ -1,5 +1,7 @@
-import { Command, ProgramState } from "./types";
 import { original, produce } from "immer";
+
+import { Command } from "./types";
+import { ProgramState } from "../GPX";
 
 // import { instrumentContext } from "../webgl/instrumenter";
 

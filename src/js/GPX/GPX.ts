@@ -1,6 +1,20 @@
 import * as R from "ramda";
 
-import { Command, ProgramState } from "./Commands/types";
+import {
+  Attributes,
+  Buffers,
+  Command,
+  FrameBuffers,
+  Textures,
+  Uniforms
+} from "./Commands/types";
+
+import { instrumentContext } from "./webgl/instrumenter";
+
+export * from "./resources/buffer";
+export * from "./resources/framebuffer";
+export * from "./resources/texture";
+
 
 export * from "./Commands/core";
 
@@ -9,8 +23,19 @@ const createProgramState = (): ProgramState => ({
   buffers: {},
   uniforms: {},
   textures: {},
-  framebuffers: {},
+  framebuffers: {}
 });
+
+export interface ProgramState {
+  gl?: WebGL2RenderingContext;
+  program?: WebGLProgram;
+  vao?: WebGLVertexArrayObject;
+  attributes: Attributes;
+  uniforms: Uniforms;
+  buffers: Buffers;
+  textures: Textures;
+  framebuffers: FrameBuffers;
+}
 
 const executeCommands = (state: ProgramState, ...commands: Array<Command>) => {
   for (let i = 0; i < commands.length; i++) {
@@ -26,12 +51,16 @@ const GPX = (...commands: Array<Command>): ProgramState => {
   return executeCommands(state, ...R.flatten(commands));
 };
 
+GPX.withState = (state: ProgramState) => (...commands: Array<Command>) =>
+  executeCommands(state, ...R.flatten(commands));
+
 GPX.Compose = (...commands: Array<Command>) => () => ({
   resolve: (state: ProgramState) => executeCommands(state, ...commands)
 });
 
-export type PipeCommands = any;
+GPX.createState = (): ProgramState => createProgramState();
 
+export type PipeCommands = any;
 GPX.pipeFirst = (_: any, ...commands: PipeCommands) => {
   return commands.map((command: any) => {
     if (command instanceof Function) {
@@ -40,12 +69,17 @@ GPX.pipeFirst = (_: any, ...commands: PipeCommands) => {
       if (!(command[0] instanceof Function)) {
         throw new Error("Invalid arguments passed to GPX.pipeFirst");
       }
-      
+
       return command[0](_, ...(command as Array<any>).slice(1));
     }
 
     throw new Error("invalid args passed to pipeFirst");
   });
 };
+
+GPX.getContext = (canvas: HTMLCanvasElement) => {
+  const gl = canvas.getContext("webgl2");
+  return instrumentContext(gl);
+}
 
 export default GPX;

@@ -1,14 +1,14 @@
-import { Command, ProgramState } from "./types";
-
+import { Command } from "./types";
+import { ProgramState } from "../GPX";
 import { createResolver } from "./helpers";
 
 export interface DrawArraysConfig {
   type?: GLenum;
   first?: number;
-  count?: number;
+  count: number;
 }
 
-export const drawArrays = (config: DrawArraysConfig = {}): Command => ({
+export const drawArrays = (config: DrawArraysConfig): Command => ({
   resolve: createResolver((state: ProgramState) => {
     const { gl } = state;
     gl.drawArrays(config.type || gl.POINTS, config.first || 0, config.count);
@@ -27,7 +27,7 @@ export const drawArraysInstanced = (config: DrawArraysInstancedConfig): Command 
     const { gl } = state;
 
     gl.drawArraysInstanced(
-      config.mode || gl.TRIANGLES,
+      config.mode || gl.POINTS,
       config.first || 0,
       config.count,
       config.instanceCount

@@ -1,5 +1,5 @@
-import { Command, ProgramState } from "./types";
-
+import { Command } from "./types";
+import { ProgramState } from "../GPX";
 import { createResolver } from "./helpers";
 
 export interface AttributeConfig {
