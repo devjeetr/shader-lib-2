@@ -1,4 +1,4 @@
-import GPX, { ProgramState } from "../GPX";
+import  { GPX, ProgramState } from "../GPX";
 
 import { BufferResource } from "../resources/buffer";
 import { Command } from "./types";

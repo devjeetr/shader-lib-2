@@ -1,6 +1,7 @@
 {
     "compilerOptions": {
-      "outDir": "./dist/",
+      "outDir": "dist/",
+      "rootDir": "src/js",
       "noImplicitAny": true,
       "target": "esnext",
       "declaration": true,
@@ -8,5 +9,7 @@
       "module": "esnext",
       "sourceMap": true,
       "moduleResolution": "node",
+      "noEmitOnError": true,
+      "declarationDir": "dist/"
     }
   }

@@ -1,5 +1,6 @@
+import { GPX, ProgramState } from "../GPX";
+
 import { Command } from "./types";
-import { ProgramState } from "../GPX";
 import { createResolver } from "./helpers";
 
 /**
@@ -62,38 +63,65 @@ export const updateUniform = (name: string, ...data: any): Command =>
   createResolver((state: ProgramState) => {
     const { gl, uniforms } = state;
     const { location, type, offset } = uniforms[name];
+    setUniform(gl, location, data, type as UniformType, offset);
+  });
 
-    switch (type) {
-      case "uniform1ui":
-      case "uniform1f":
-      case "uniform1i":
-        gl[type](location, data[0]);
-        break;
-      case "uniform2ui":
-      case "uniform2f":
-        gl[type](location, data[0], data[1]);
-        break;
-      case "uniform3ui":
-        gl.uniform3ui(location, data[0], data[1], data[2]);
-        break;
-      case "uniform4ui":
-        gl.uniform4ui(location, data[0], data[1], data[2], data[3]);
-        break;
-      case "uniform1fv":
-      case "uniform2fv":
-      case "uniform3fv":
-      case "uniform4fv":
-      case "uniform1iv":
-      case "uniform2iv":
-      case "uniform3iv":
-      case "uniform4iv":
-      case "uniform1uiv":
-      case "uniform2uiv":
-      case "uniform3uiv":
-      case "uniform4uiv":
-        gl[type](location, data[0], offset);
-        break;
-      default:
-        throw new Error(`Invalid uniform update type passed: ${type}`);
-    }
+const setUniform = (
+  gl: WebGL2RenderingContext,
+  location: WebGLUniformLocation,
+  data: any,
+  type: UniformType,
+  offset?: number
+) => {
+  switch (type) {
+    case "uniform1ui":
+    case "uniform1f":
+    case "uniform1i":
+      gl[type](location, data[0]);
+      break;
+    case "uniform2ui":
+    case "uniform2f":
+      gl[type](location, data[0], data[1]);
+      break;
+    case "uniform3ui":
+      gl.uniform3ui(location, data[0], data[1], data[2]);
+      break;
+    case "uniform4ui":
+      gl.uniform4ui(location, data[0], data[1], data[2], data[3]);
+      break;
+    case "uniform1fv":
+    case "uniform2fv":
+    case "uniform3fv":
+    case "uniform4fv":
+    case "uniform1iv":
+    case "uniform2iv":
+    case "uniform3iv":
+    case "uniform4iv":
+    case "uniform1uiv":
+    case "uniform2uiv":
+    case "uniform3uiv":
+    case "uniform4uiv":
+      gl[type](location, data[0], offset);
+      break;
+    default:
+      throw new Error(`Invalid uniform update type passed: ${type}`);
+  }
+};
+
+export const updateUniforms = (uniformsToSet: {
+  [key: string]: any;
+}): Command =>
+  createResolver(state => {
+    const { gl, uniforms } = state;
+
+    Object.keys(uniformsToSet).forEach(name => {
+      const { location, type, offset } = uniforms[name];
+      setUniform(
+        gl,
+        location,
+        [uniformsToSet[name]],
+        type as UniformType,
+        offset
+      );
+    });
   });

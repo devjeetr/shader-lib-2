@@ -9,6 +9,7 @@ module.exports = {
   mode: "production",
   output: {
     path: path.resolve(__dirname, 'dist/'),
+    publicPath: path.resolve(__dirname, 'dist/GPX'),
     filename: 'GPX.js',
     library: "GPX",
     libraryTarget: 'umd',
@@ -40,8 +41,8 @@ module.exports = {
       {
         test: /\.tsx?$/,
         use: "ts-loader",
-
-        exclude: /node_modules/
+        exclude: [/node_modules/, 
+        path.resolve(__dirname, "src/js/__tests__")]
       }
     ]
   },

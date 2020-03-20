@@ -20,8 +20,8 @@ export interface TextureResource {
 export interface TextureConfig {
   height?: number;
   width?: number;
-  format: GLenum;
-  type: GLenum;
+  format?: GLenum;
+  type?: GLenum;
   level?: number;
   target?: GLenum;
   mag?: GL_LINEAR | GL_NEAREST;
@@ -38,15 +38,17 @@ export interface TextureConfig {
 
 export const texture = (
   gl: WebGL2RenderingContext,
-  config: TextureConfig = {
+  config: TextureConfig = {}
+) => {
+  const handle = gl.createTexture();
+  const defaultConfig =  {
     level: 0,
     target: gl.TEXTURE_2D,
     format: gl.RGBA,
     type: gl.UNSIGNED_BYTE
-  }
-) => {
-  const handle = gl.createTexture();
-    
+  };
+
+  config = {...defaultConfig, ...config};
   return {
     target: () => config.target,
     handle: () => handle,
@@ -54,6 +56,7 @@ export const texture = (
       gl.activeTexture(gl.TEXTURE0)
       gl.bindTexture(config.target, handle)},
     init: () => {
+        gl.activeTexture(gl.TEXTURE0)
         gl.bindTexture(config.target, handle);
         
         // set wrap_s
@@ -72,7 +75,7 @@ export const texture = (
         if (config.min) {
             gl.texParameteri(config.target, gl.TEXTURE_MIN_FILTER, config.min);
         }
-
+        
         gl.texImage2D(
           config.target,
           config.level,

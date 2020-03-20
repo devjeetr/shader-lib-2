@@ -3,7 +3,7 @@ import { UniformConfig, initUniform } from "./uniform";
 import { bindVao, createVao } from "./vao";
 import { createProgramAndCompileShaders, useProgram } from "./shader";
 
-import GPX from "../GPX";
+import {GPX} from "../GPX";
 import { createResolver } from "./helpers";
 
 export interface ProgramConfig {

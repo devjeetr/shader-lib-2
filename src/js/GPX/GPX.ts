@@ -8,8 +8,7 @@ import {
   Textures,
   Uniforms
 } from "./Commands/types";
-
-import { instrumentContext } from "./webgl/instrumenter";
+import { InstrumentedContext, instrumentContext } from "./webgl/instrumenter";
 
 export * from "./resources/buffer";
 export * from "./resources/framebuffer";
@@ -45,7 +44,7 @@ const executeCommands = (state: ProgramState, ...commands: Array<Command>) => {
   return Object.freeze(state);
 };
 
-const GPX = (...commands: Array<Command>): ProgramState => {
+export const GPX = (...commands: Array<Command>): ProgramState => {
   let state = createProgramState();
   return executeCommands(state, ...R.flatten(commands));
 };
@@ -59,6 +58,7 @@ GPX.Compose = (...commands: Array<Command>) => () => (state: ProgramState) =>
 GPX.createState = (): ProgramState => createProgramState();
 
 export type PipeCommands = any;
+
 GPX.pipeFirst = (_: any, ...commands: PipeCommands) => {
   return commands.map((command: any) => {
     if (command instanceof Function) {
@@ -75,9 +75,20 @@ GPX.pipeFirst = (_: any, ...commands: PipeCommands) => {
   });
 };
 
-GPX.getContext = (canvas: HTMLCanvasElement) => {
+GPX.getContext = (canvas: HTMLCanvasElement): InstrumentedContext => {
   const gl = canvas.getContext("webgl2");
   return instrumentContext(gl);
 };
 
-export default GPX;
+GPX.Instance = () => {
+  let state = createProgramState();
+
+  return {
+    execute: (...commands: Array<Command>): void => {
+      state = GPX.withState(state)(
+        ...commands,
+      )
+    }
+  };
+}
+
