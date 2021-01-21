@@ -28,7 +28,7 @@
   "dependencies": {
     "@types/ramda": "^0.26.43",
     "@types/webgl2": "^0.0.5",
-    "immer": "^6.0.1",
+    "immer": "^8.0.1",
     "prettier-eslint": "^9.0.1",
     "ramda": "^0.27.0",
     "sonarjs": "^1.0.0"
